@@ -4,7 +4,7 @@ import Services from "./Pages/Services/Services";
 import UserDashboard from "./Pages/UserDashboard/UserDashboard";
 import Projects from "./Pages/Projects/Project";
 import Clients from "./Pages/Clients/Clients";
-import {Routes} from "../../core/routing/routing";
+import { Routes } from "../../core/routing/routing";
 
 const MainRouting = () => {
     return (
