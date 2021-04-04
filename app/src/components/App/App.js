@@ -7,9 +7,7 @@ const App = () => {
         <>
             <Header />
             <main className="container-fluid">
-                <switch>
                     <MainRouting />
-                </switch>
             </main>
         </>
     );

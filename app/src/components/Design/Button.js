@@ -14,7 +14,7 @@ const Button = ({ children, onClick, color = "primary", type = "button" }) => {
 Button.propTypes = {
     onClick: PropTypes.func,
     type: PropTypes.oneOf(['button', 'reset', 'submit']),
-    color: PropTypes.oneOf(['primary', 'secondary', 'light', 'outline-light', 'danger']),
+    color: PropTypes.oneOf(['primary', 'secondary', 'light', 'outline-light','outline-dark', 'danger']),
 };
 
 export default Button;
