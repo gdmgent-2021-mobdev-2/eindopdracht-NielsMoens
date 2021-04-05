@@ -27,6 +27,12 @@ const userSchema = new mongoose.Schema({
     }
 });
 
+
+clientSchema.virtual('name').get(function() {
+    const client = this;
+    return `${client.firstName} ${client.lastName}`;
+});
+
 //  models
 const User = mongoose.model('Client', userSchema);
 
