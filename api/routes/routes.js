@@ -1,11 +1,19 @@
-const ClientController  = require ('../controllers/ClientController')
-const ProjectController =  require ('../controllers/ProjectController')
+const ClientController  = require ('../controllers/ClientController');
+const ProjectController =  require ('../controllers/ProjectController');
+const UserController = require ('../controllers/Usercontroller');
 const NotFoundError = require("../errors/UserNotFoundError");
+const {authLocal} = require("../services/auth.services");
 
 const projectController = new ProjectController();
-const clientController =  new ClientController()
+const clientController =  new ClientController();
+const userController = new UserController();
 
 const RegisterRoutes = (app) => {
+
+    // user
+    app.post('/register', userController.register)
+    app.post('/login',authLocal, userController.login)
+
     // client routes
     app.get('/clients', clientController.getClients)
     app.get('/clients/:id', clientController.getClientById)
