@@ -1,4 +1,5 @@
 const ClientController  = require ('../controllers/ClientController')
+const NotFoundError = require("../errors/UserNotFoundError");
 
 
 const clientController =  new ClientController()
@@ -16,6 +17,16 @@ const RegisterRoutes = (app) => {
     app.patch('/clients/:id', clientController.updateClientById)
 
 
+    // default 404
+    app.use((req, res, next) => {
+        next(new NotFoundError());
+    });
+
+    // error handler
+    app.use(function (err, req, res, next){
+        res.status(err.statusCode || 500);
+        res.json(err);
+    });
 
 }
 module.exports = {

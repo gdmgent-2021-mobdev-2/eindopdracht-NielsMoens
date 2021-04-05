@@ -5,5 +5,4 @@ class ValidationError extends Error {
         this.statusCode = 404;
     }
 }
-
 module.exports = ValidationError;
