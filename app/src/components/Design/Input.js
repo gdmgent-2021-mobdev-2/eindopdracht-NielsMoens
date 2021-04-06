@@ -1,22 +1,33 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({ name, label, onChange, value }) => {
-    return (
-        <>
-            <label htmlFor={name} className="form-label">{ label }</label>
-            <input name={name}
-                   id={name}
-                   value={value}
-                   onChange={onChange}
-                   className="form-control" />
-        </>
-    )
-};
+const Input = React.forwardRef(
+    ({ type = "text", name, onChange, value, label, error, disabled }, ref) => {
+        return (
+            <div className="form-group">
+                {label && <label htmlFor={name}>{label}</label>}
+                <input className={`form-control ${error ? 'is-invalid' : ''}`}
+                       type={type}
+                       name={name}
+                       ref={ref}
+                       disabled={disabled}
+                       value={value}
+                       onChange={onChange} />
+                {error && (
+                    <div className="invalid-feedback">
+                        {error}
+                    </div>
+                )}
+            </div>
+        )
+    });
 
 Input.propTypes = {
+    type: PropTypes.string,
     name: PropTypes.string.isRequired,
-    onChange: PropTypes.func,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
+    disabled: PropTypes.bool,
+    onChange: PropTypes.func.isRequired,
 };
 
 export default Input;

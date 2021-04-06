@@ -1,8 +1,12 @@
 import React from 'react';
 import Header from "./Header/Header";
+import {AuthContext, useAuth} from "../Auth/AuthContainer";
 import MainRouting from "./MainRouting";
 
+
 const App = () => {
+    //by importing useAuth we can access the user & setUser form anywhere beneath this now
+    // const {user, setUser} = useAuth();
     return(
         <>
             <Header />

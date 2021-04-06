@@ -4,6 +4,9 @@ import Styles from './LoginPage.module.scss'
 import Input from "../../../Design/Input";
 import Button from "../../../Design/Button";
 import * as yup from 'yup';
+import {login} from "../../../../core/modules/api/api";
+import {getValidationErrors} from "../../../../core/modules/utils/validation";
+import Alert from "../../../Design/Alert";
 
 let schema = yup.object().shape({
     email: yup.string().email().required(),
@@ -11,13 +14,13 @@ let schema = yup.object().shape({
 });
 
 const LoginPage = ({setUser}) => {
-    const [errors, setErrors] = useState({});
-    const [error, setError] = useState();
 
     const [data, setData] = useState({
         email: '',
         password: '',
     });
+    const [errors, setErrors] = useState({});
+    const [error, setError] = useState();
 
     const handleChange = (e) => {
         setData({
@@ -28,40 +31,39 @@ const LoginPage = ({setUser}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        schema.validate(data).then(()=> {
-            fetch(`${process.env.REACT_APP_BASE_API}/login`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            }).then((response) => response.json())
+        schema.validate(data, {abortEarly: false}).then(()=> {
+            login(data)
+                .then((json) => {
+                    if (json.status === 200) {
+                        return json.json();
+                    }
+                    throw (json.json());
+                })
                 .then((data) => {
-                    console.log(data)
                     setUser(data)
                 })
                 .catch((e) => {
-                    // TODO catch error cleaner
-                    console.log(e);
+                    setError(e);
                 })
-        }).catch((e) => {
-            console.log(e.errors)
+        }).catch((err) => {
+            setErrors(getValidationErrors(err));
         })
     };
     return (
         <Container>
             <div className="text-center" >
-                {/*{ error && <Alert color="danger"> { error.message || 'something went wrong' } </Alert>}*/}
-                <form className={Styles['form-signin']} onSubmit={handleSubmit}>
+                { error && <Alert color="danger"> { error.message || 'Da Ni Just Eh Vriend >.<' } </Alert>}
+                <form className={Styles['form-signin']} onSubmit={handleSubmit} noValidate={true}>
                     <img className="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"/>
                     <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+
                     <label htmlFor="email" className="sr-only">Email address</label>
-                    <Input type="email" name="email" value={data.email} onChange={handleChange}  />
+                    <Input type="email" name="email" value={data.email} onChange={handleChange} error={errors.email} />
+
                     <label htmlFor="password" className="sr-only">Password</label>
-                    <Input type="password" name="password" value={data.password} onChange={handleChange} />
-                    <Container>
-                        <Button color="primary" type="submit">Sign in</Button>
-                    </Container>
+                    <Input type="password" name="password" value={data.password} onChange={handleChange} error={errors.password} />
+
+                    <Button color="primary" type="submit">Sign in</Button>
                 </form>
             </div>
         </Container>
