@@ -16,6 +16,8 @@ const registerMiddleware = (app) => {
     app.use(helmet.noSniff());
     app.use(helmet.hidePoweredBy());
     app.use(helmet.xssFilter());
+
+    app.use(require('body-parser').urlencoded({extended: true}));
 };
 
 module.exports = {

@@ -1,6 +1,8 @@
 // schema
 const mongoose = require("mongoose");
 const bcrypt = require('bcrypt');
+const jwt = require("jsonwebtoken");
+const {ExtractJwt, Strategy} = require("passport-jwt");
 
 // Users schema
 const userSchema = new mongoose.Schema({
@@ -70,7 +72,6 @@ userSchema.methods = {
         });
     },
 };
-
 
 //  models
 const User = mongoose.model('User', userSchema);
