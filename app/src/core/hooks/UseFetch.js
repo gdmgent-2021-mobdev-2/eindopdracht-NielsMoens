@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
-import {useAuth} from "../../components/Auth/AuthContainer";
+import {useAuth} from "../../components/Auth/AuthProvider";
+import ApiError from '../error/ApiError'
+import {handleApiResult} from "../modules/utils/api";
 
 const useFetch = (url) => {
     // to access the data of the current logged in user
@@ -14,13 +16,7 @@ const useFetch = (url) => {
                 authorization: `bearer ${user.token}`,
             }
         })
-            .then((json) => {
-                if (json.status === 404) {
-                    throw new Error('Not found');
-                }
-                return json;
-            })
-            .then((json) => json.json())
+            .then(handleApiResult)
             .then((data) => isCurrent && setData(data))
             .catch((error) => isCurrent && setError(String(error)));
     }, [url]);

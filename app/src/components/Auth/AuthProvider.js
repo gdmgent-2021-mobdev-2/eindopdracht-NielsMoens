@@ -8,16 +8,20 @@ import storage from "../../core/storage";
 const AuthContext = createContext();
 
 const AuthProvider = () => {
-    const [user, setUser] = useState(storage.getUser())
+    const [user, setUser] = useState(storage.getUser());
 
-    const updateUser = (user) => {
+    const updateAuth = (user) => {
         storage.storeUser(user)
         setUser(user);
     }
 
+    const logout = () => {
+        updateAuth(null);
+    }
+
     if (user) {
         return (
-            <AuthContext.Provider value={{user, setUser: updateUser}}>
+            <AuthContext.Provider value={{user, logout}}>
                 <App />
             </AuthContext.Provider>
         );
@@ -25,7 +29,7 @@ const AuthProvider = () => {
     return (
         <Switch>
             <Route path={Routes.Login}>
-                <LoginPage setUser={updateUser} />
+                <LoginPage setUser={updateAuth} />
             </Route>
             <Redirect to={Routes.Login} />
         </Switch>

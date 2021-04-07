@@ -7,6 +7,7 @@ import * as yup from 'yup';
 import {login} from "../../../../core/modules/api/api";
 import {getValidationErrors} from "../../../../core/modules/utils/validation";
 import Alert from "../../../Design/Alert";
+import {handleApiResult} from "../../../../core/modules/utils/api";
 
 let schema = yup.object().shape({
     email: yup.string().email().required(),
@@ -33,12 +34,7 @@ const LoginPage = ({setUser}) => {
         e.preventDefault();
         schema.validate(data, {abortEarly: false}).then(()=> {
             login(data)
-                .then((json) => {
-                    if (json.status === 200) {
-                        return json.json();
-                    }
-                    throw (json.json());
-                })
+                .then(handleApiResult)
                 .then((data) => {
                     setUser(data)
                 })

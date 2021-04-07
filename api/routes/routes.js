@@ -1,6 +1,6 @@
 const ClientController  = require ('../controllers/ClientController');
 const ProjectController =  require ('../controllers/ProjectController');
-const UserController = require ('../controllers/Usercontroller');
+const UserController = require ('../controllers/UserController');
 const NotFoundError = require("../errors/UserNotFoundError");
 const authRouter = require("./authRoutes");
 const {authJwt} = require("../services/auth.services");

@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from "./Header/Header";
-import {AuthContext, useAuth} from "../Auth/AuthContainer";
+import {AuthContext, useAuth} from "../Auth/AuthProvider";
 import MainRouting from "./MainRouting";
 
 
