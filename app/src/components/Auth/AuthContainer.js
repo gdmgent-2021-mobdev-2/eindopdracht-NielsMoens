@@ -25,7 +25,7 @@ const AuthProvider = () => {
     return (
         <Switch>
             <Route path={Routes.Login}>
-                <LoginPage setUser={updateUser()} />
+                <LoginPage setUser={updateUser} />
             </Route>
             <Redirect to={Routes.Login} />
         </Switch>
