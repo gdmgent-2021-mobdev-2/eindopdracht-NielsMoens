@@ -5,6 +5,6 @@ const getValidationErrors = (error) => {
     );
 };
 
-export {
+export{
     getValidationErrors,
 }

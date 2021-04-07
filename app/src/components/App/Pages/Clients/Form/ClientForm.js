@@ -1,8 +1,26 @@
 import {useState} from "react";
 import Input from "../../../../Design/Input";
+import getValidateError from "../../../../../core/utils/validation";
 
-const ClientForm = ({disabled}) => {
-    const[data, setData] = useState({});
+const schema = yup.object().shape({
+    email: yup.string().email().required(),
+    company: yup.string().required(),
+    firstName: yup.string().required(),
+    lastName: yup.string().required(),
+});
+
+const defaultData = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+};
+
+const ClientForm = ({onSubmit, initialData ={}, disabled}) => {
+    const[data, setData] = useState({
+        ...defaultData,
+        ...initialData,
+    });
     const[errors, setErrors] = useState({});
 
     const handleChange = (e) => {
@@ -15,6 +33,13 @@ const ClientForm = ({disabled}) => {
     const handleSubmit = (e) => {
         // otherwise the browser will reload the webpage
         e.preventDefault();
+        schema.validate(data, {abortEarly: false})
+        .then(() => {
+            onSubmit(data)
+        }).catch((err) => {
+            setErrors(getValidateError(err))
+        });
+
     };
 
     return (
