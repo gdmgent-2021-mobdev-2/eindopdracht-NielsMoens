@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
 import {useAuth} from "../../components/Auth/AuthProvider";
-import ApiError from '../error/ApiError'
-import {handleApiResult} from "../modules/utils/api";
+import {handleApiResult} from "../utils/api";
+import useAuthApi from "./useAuthApi";
 
 const useFetch = (url) => {
+    const withAuth = useAuthApi();
     // to access the data of the current logged in user
     const {user} = useAuth();
 
@@ -11,15 +12,14 @@ const useFetch = (url) => {
     const [error, setError] = useState();
 
     const fetchData = useCallback((isCurrent = true) => {
-        fetch(`${process.env.REACT_APP_BASE_API}${url}`,{
-            headers: {
-                authorization: `bearer ${user.token}`,
-            }
-        })
-            .then(handleApiResult)
+        withAuth(fetch(`${process.env.REACT_APP_BASE_API}${url}`,{
+                headers: {
+                    authorization: `bearer ${user.token}`,
+                }
+            }))
             .then((data) => isCurrent && setData(data))
             .catch((error) => isCurrent && setError(String(error)));
-    }, [url]);
+    }, [url, withAuth]);
 
     const refresh = () => {
         fetchData();

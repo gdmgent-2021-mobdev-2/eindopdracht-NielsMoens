@@ -1,4 +1,4 @@
-import UseFetch from "../../../../../core/hooks/UseFetch";
+import UseFetch from "../../../../../core/hooks/useFetch";
 import Alert from "../../../../Design/Alert";
 import LoadingSpinner from "../../../../Design/LoadingSpinner";
 
