@@ -3,13 +3,14 @@ import {route, Routes} from "../../../../../core/routing/routing";
 import Alert from "../../../../Design/Alert";
 import LoadingSpinner from "../../../../Design/LoadingSpinner";
 import useFetch from "../../../../../core/hooks/useFetch";
+import {fetchProjects} from "../../../../../core/modules/projects/api";
 
 const ProjectsOverview = () => {
     const {
         data: projects,
         error,
         isLoading
-    } = useFetch('/projects');
+    } = useFetch(fetchProjects);
 
     if (isLoading) {
         return <LoadingSpinner />;

@@ -1,6 +1,6 @@
 import { useCallback} from 'react';
 import {useAuth} from "../../components/Auth/AuthProvider";
-import {handleApiResult} from "../utils/api";
+import {handleApiResult, withToken} from "../utils/api";
 import ApiError from "../error/apiError";
 import AppError from "../error/appError";
 
@@ -9,7 +9,7 @@ const useAuthApi = () => {
 
     const withAuth = useCallback((promise) => {
             return new Promise((resolve, reject) => {
-                promise
+                withToken(promise, user.token)
                     .then(handleApiResult)
                     .then((data) => resolve(data))
                     .catch((error) => {
@@ -24,7 +24,7 @@ const useAuthApi = () => {
                         }
                     })
             });
-        }, [logout]);
+        }, [logout, user.token]);
 
     return withAuth;
 }

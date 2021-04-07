@@ -1,13 +1,14 @@
-import UseFetch from "../../../../../core/hooks/useFetch";
+import useFetch from "../../../../../core/hooks/useFetch";
 import Alert from "../../../../Design/Alert";
 import LoadingSpinner from "../../../../Design/LoadingSpinner";
+import {fetchClients} from "../../../../../core/modules/clients/api";
 
 const ClientOverview = () => {
     const {
         data: clients,
         error,
         isLoading
-    } = UseFetch('/clients');
+    } = useFetch(fetchClients);
 
     if (isLoading) {
         return <LoadingSpinner />;

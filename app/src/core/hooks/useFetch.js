@@ -3,7 +3,7 @@ import {useAuth} from "../../components/Auth/AuthProvider";
 import {handleApiResult} from "../utils/api";
 import useAuthApi from "./useAuthApi";
 
-const useFetch = (url) => {
+const useFetch = (apiCall) => {
     const withAuth = useAuthApi();
     // to access the data of the current logged in user
     const {user} = useAuth();
@@ -12,14 +12,10 @@ const useFetch = (url) => {
     const [error, setError] = useState();
 
     const fetchData = useCallback((isCurrent = true) => {
-        withAuth(fetch(`${process.env.REACT_APP_BASE_API}${url}`,{
-                headers: {
-                    authorization: `bearer ${user.token}`,
-                }
-            }))
+        withAuth(apiCall())
             .then((data) => isCurrent && setData(data))
             .catch((error) => isCurrent && setError(String(error)));
-    }, [url, withAuth]);
+    }, [apiCall, withAuth]);
 
     const refresh = () => {
         fetchData();
@@ -28,7 +24,7 @@ const useFetch = (url) => {
     useEffect(() => {
         setData(null);
         setError(null);
-        if (url) {
+        if (apiCall) {
             let isCurrent = true;
 
             fetchData(isCurrent);
@@ -37,7 +33,7 @@ const useFetch = (url) => {
                 isCurrent = false
             };
         }
-    }, [url, fetchData]);
+    }, [apiCall, fetchData]);
 
     const isLoading = !data && !error;
 
