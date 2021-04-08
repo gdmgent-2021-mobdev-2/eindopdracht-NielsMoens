@@ -1,7 +1,9 @@
 import useFetch from "../../../../../core/hooks/useFetch";
 import Alert from "../../../../Design/Alert";
-import LoadingSpinner from "../../../../Design/LoadingSpinner";
+import Spinner from "../../../../Design/LoadingSpinner";
 import {fetchClients} from "../../../../../core/modules/clients/api";
+import {Link} from "react-router-dom";
+import {route, Routes} from "../../../../../core/routing/routing";
 
 const ClientOverview = () => {
     const {
@@ -11,7 +13,7 @@ const ClientOverview = () => {
     } = useFetch(fetchClients);
 
     if (isLoading) {
-        return <LoadingSpinner />;
+        return <Spinner />;
     }
 
     if (error) {
@@ -21,10 +23,15 @@ const ClientOverview = () => {
     return (
         <>
             <h1>Clients</h1>
+
+            <Link to={Routes.ClientsCreate}>Create client</Link>
             <ul>
                 { clients.map((client) => (
                     <li key={client._id}>
-                        {client.firstName} {client.lastName}
+                        {console.log(client.id)}
+                        <Link to={route(Routes.ClientsDetail, {id: client._id })}>
+                            {client.name}
+                        </Link>
                     </li>
                 ))}
             </ul>

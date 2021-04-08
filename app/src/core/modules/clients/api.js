@@ -29,4 +29,4 @@ const updateClient = (data) => (headers) => {
     });
 };
 
-export { fetchClients, createClient}
+export { fetchClients, fetchClient, createClient, createHeaders,updateClient}

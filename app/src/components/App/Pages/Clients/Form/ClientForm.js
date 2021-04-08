@@ -1,6 +1,9 @@
-import {useState} from "react";
+import {useCallback, useEffect, useState} from "react";
+
 import Input from "../../../../Design/Input";
-import getValidateError from "../../../../../core/utils/validation";
+import * as yup from 'yup';
+import { getValidationErrors } from "../../../../../core/utils/validation";
+import Button from "../../../../Design/Button";
 
 const schema = yup.object().shape({
     email: yup.string().email().required(),
@@ -17,6 +20,7 @@ const defaultData = {
 };
 
 const ClientForm = ({onSubmit, initialData ={}, disabled}) => {
+    const [isTouched, setIsTouched] = useState(false)
     const[data, setData] = useState({
         ...defaultData,
         ...initialData,
@@ -30,23 +34,40 @@ const ClientForm = ({onSubmit, initialData ={}, disabled}) => {
         })
     }
 
+    const validate = useCallback((data, onSucces) => {
+        schema.validate(data, {abortEarly: false})
+            .then(() => {
+                if (onSucces){
+                    onSucces();
+                }
+            }).catch((err) => {
+            setErrors(getValidationErrors(err))
+        });
+    },);
+
+    // so the error alert messages go away when the user starts typing in the form
+    useEffect(()=> {
+        if(isTouched) {
+            validate(data);
+        }
+    }, [ data]);
+
+
+
     const handleSubmit = (e) => {
         // otherwise the browser will reload the webpage
         e.preventDefault();
-        schema.validate(data, {abortEarly: false})
-        .then(() => {
+        setIsTouched(true)
+        validate(data, () => {
             onSubmit(data)
-        }).catch((err) => {
-            setErrors(getValidateError(err))
-        });
-
+        })
     };
 
     return (
         <form onSubmit={handleSubmit} noValidate={true}>
             <label htmlFor="company">Company</label>
             <Input type="text" name="company"
-                value={values.company}
+                value={data.company}
                 disabled={disabled}
                 onChange={handleChange}
                 error={errors.company}
@@ -54,7 +75,7 @@ const ClientForm = ({onSubmit, initialData ={}, disabled}) => {
 
             <label htmlFor="email">Email address</label>
             <Input type="email" name="email"
-                value={values.email}
+                value={data.email}
                 disabled={disabled}
                 onChange={handleChange}
                 error={errors.email}
@@ -62,7 +83,7 @@ const ClientForm = ({onSubmit, initialData ={}, disabled}) => {
 
             <label htmlFor="firstName">First Name</label>
             <Input type="text" name="firstName"
-                value={values.firstName}
+                value={data.firstName}
                 disabled={disabled}
                 onChange={handleChange}
                 error={errors.firstName}
@@ -70,14 +91,14 @@ const ClientForm = ({onSubmit, initialData ={}, disabled}) => {
 
             <label htmlFor="lastName">Last Name</label>
             <Input type="text" name="lastName"
-                value={values.lastName}
+                value={data.lastName}
                 disabled={disabled}
                 onChange={handleChange}
                 error={errors.lastName}
             />
 
             <Button type="submit" disabled={disabled}>
-                {values._id ? 'Update' : 'Create'}
+                {data._id ? 'Update' : 'Create'}
             </Button>
         </form>
     )
