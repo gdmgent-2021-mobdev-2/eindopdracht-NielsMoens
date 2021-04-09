@@ -3,8 +3,8 @@ const ProjectController =  require ('../controllers/ProjectController');
 const UserController = require ('../controllers/UserController');
 const NotFoundError = require("../errors/UserNotFoundError");
 const authRouter = require("./authRoutes");
-const {authJwt} = require("../services/auth.services");
-const {authLocal, } = require("../services/auth.services");
+const {authJwt} = require("../services/auth/auth.services");
+const {authLocal, } = require("../services/auth/auth.services");
 
 const projectController = new ProjectController();
 const clientController =  new ClientController();

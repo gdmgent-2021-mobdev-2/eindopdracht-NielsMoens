@@ -11,6 +11,7 @@ const useFetch = (apiCall) => {
     const [data, setData] = useState();
     const [error, setError] = useState();
 
+
     const fetchData = useCallback((isCurrent = true) => {
         withAuth(apiCall())
             .then((data) => isCurrent && setData(data))
@@ -36,10 +37,11 @@ const useFetch = (apiCall) => {
     }, [apiCall, fetchData]);
 
     const isLoading = !data && !error;
-
+    // console.log("data", data);
     return {
         data,
         error,
+        setData,
         refresh,
         isLoading,
     }

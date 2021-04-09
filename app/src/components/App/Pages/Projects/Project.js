@@ -3,7 +3,7 @@ import ProjectDetail from "./Detail/ProjectDetail";
 import {Routes} from "../../../../core/routing/routing";
 import ProjectsOverview from "../Projects/Overview/ProjectsOverview"
 
-const Projects = () => {
+const Projects = ({}) => {
     return(
         <>
             <Switch>
@@ -11,7 +11,7 @@ const Projects = () => {
                     <ProjectDetail/>
                 </Route>
                 <Route path={Routes.Projects}>
-                    <ProjectsOverview />
+                        <ProjectsOverview />
                 </Route>
                 <Redirect to={Routes.Projects}/>
             </Switch>

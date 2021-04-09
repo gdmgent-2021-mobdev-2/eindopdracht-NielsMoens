@@ -6,7 +6,7 @@ import { updateClient } from "../../../../../../core/modules/clients/api";
 import {route, Routes} from "../../../../../../core/routing/routing";
 import ErrorAlert from "../../../../../Shared/ErrorAlert";
 
-const EditClient = ({ client }) => {
+const EditClient = ({ client , onUpdate}) => {
     const withAuth = useAuthApi();
     const history = useHistory();
     const [isLoading, setIsLoading] = useState();
@@ -16,8 +16,9 @@ const EditClient = ({ client }) => {
         setIsLoading(true);
         withAuth(updateClient(data))
             .then((data) => {
+            onUpdate(data);
                 history.push(
-                    route(Routes.Clients, {
+                    route(Routes.ClientsDetail, {
                         id: data._id,
                     })
                 );

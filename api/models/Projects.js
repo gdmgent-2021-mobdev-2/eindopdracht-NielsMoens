@@ -35,6 +35,13 @@ projectSchema.virtual('client', {
     foreignField: '_id',
     justOne: true,
 });
+projectSchema.virtual('client', {
+    ref: 'Client',
+    localField: 'clientId',
+    foreignField: '_id',
+    justOne: true,
+});
+
 
 const Project = mongoose.model('Project', projectSchema);
 

@@ -3,7 +3,6 @@ const NotFoundError = require("../errors/UserNotFoundError");
 const { Project } = require('../models/Projects');
 
 class ProjectController {
-
     getProjects = async (req, res, next) => {
         try {
             // gehaald die op en dan gaje da uitvoeren die daje der uit wilt

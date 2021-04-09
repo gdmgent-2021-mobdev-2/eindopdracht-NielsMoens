@@ -4,10 +4,11 @@ import useFetch from "../../../../../core/hooks/useFetch";
 import {fetchClient} from "../../../../../core/modules/clients/api";
 import Spinner from "../../../../Design/LoadingSpinner";
 import Alert from "../../../../Design/Alert";
-import {Route, Switch} from "react-router-dom";
+import {Redirect, Route, Switch} from "react-router-dom";
 import {Routes} from "../../../../../core/routing/routing";
 import EditClient from "./Edit/EditClient";
 import ClientDetail from "./DetailPage/ClientDetail";
+import AdminRoute from "../../../../Shared/Admin/AdminRoute";
 
 
 const ClientDetailContainer = () => {
@@ -21,6 +22,7 @@ const ClientDetailContainer = () => {
     const {
         data: client,
         error,
+        setData,
         isLoading
     } = useFetch(apiCall);
 
@@ -36,12 +38,13 @@ const ClientDetailContainer = () => {
         return(
             <>
                 <Switch>
-                    <Route path={Routes.ClientsEdit}>
-                        <EditClient client={client} />
-                    </Route>
+                    <AdminRoute path={Routes.ClientsEdit}>
+                        <EditClient client={client} onUpdate={(data) => setData(data)} />
+                    </AdminRoute>
                     <Route path={Routes.ClientsDetail}>
                         <ClientDetail client={client} />
                     </Route>
+                    <Redirect to={Routes.Clients}/>
                 </Switch>
             </>
         )

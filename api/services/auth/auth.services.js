@@ -1,46 +1,13 @@
 const LocalStrategy = require('passport-local');
 const passport = require('passport');
-const AuthError = require("../errors/AuthorizationError");
-const { ExtractJwt, Strategy } = require("passport-jwt");
-const {User} = require("../models/User");
+const AuthError = require('../../errors/AuthorizationError');
+const localStrategy = require("./localStrategy");
+const jwtStrategy = require("./jwtStrategy");
+const ForbiddenError = require("../../errors/ForbiddenError");
+const {User} = require("../../models/User");
 
 // 2 strategies
 // local strategy for login with username and password
-const localStrategy = new LocalStrategy(
-    {
-        usernameField: 'email',
-    }, async (email, password, done) => {
-        try {
-            const user = await User.findOne({ email });
-            if (user) {
-                const check = await user.comparePassword(password);
-                if (check) {
-                    return done(null, user);
-                }
-            }
-            return done(null, null);
-        } catch (e) {
-            return done(e, null);
-        }
-    }
-)
-
-const jwtOptions = {
-    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: process.env.JWT_SECRET,
-}
-
-const jwtStrategy = new Strategy(jwtOptions, async (payload, done) => {
-    try{
-        const user = await User.findById(payload._id);
-        if (!user) {
-            return done(null, false)
-        }
-        return done(null, user);
-    } catch (e) {
-        return done(e, false);
-    }
-});
 
 passport.use('local',localStrategy);
 passport.use('jwt',jwtStrategy);
@@ -64,6 +31,15 @@ const passportWithErrorHandling = (strategy) => {
 const authLocal = passportWithErrorHandling('local');
 const authJwt = passportWithErrorHandling('jwt');
 
+const withRole = (role) => (req, res, next) => {
+    const { user } = req;
+    if (user.role === role) {
+        next();
+    } else{
+        next(new ForbiddenError())
+    }
+}
+
 module.exports = {
-    authLocal, authJwt
+    authLocal, authJwt, withRole
 }

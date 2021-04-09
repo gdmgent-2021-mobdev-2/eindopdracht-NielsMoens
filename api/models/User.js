@@ -5,7 +5,16 @@ const jwt = require("jsonwebtoken");
 const {ExtractJwt, Strategy} = require("passport-jwt");
 
 // Users schema
+
+const Roles = {
+    admin: 'admin',
+    user: 'user',
+}
 const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
     email: {
         type: String,
         required: true,
@@ -17,8 +26,8 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         required: true,
-        enum: ['user', 'admin'],
-        default: 'user',
+        enum: [Roles.user, Roles.admin],
+        default: Roles.user,
     },
 }, {
     timestamps: true,
@@ -71,11 +80,14 @@ userSchema.methods = {
             expiresIn:60 * 120,
         });
     },
+    isAdmin: function() {
+        return this.role === Roles.admin;
+    },
 };
 
 //  models
 const User = mongoose.model('User', userSchema);
 
 module.exports = {
-    userSchema, User
+    userSchema, User, Roles
 }

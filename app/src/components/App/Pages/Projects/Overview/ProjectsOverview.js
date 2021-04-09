@@ -6,6 +6,7 @@ import useFetch from "../../../../../core/hooks/useFetch";
 import {fetchProjects} from "../../../../../core/modules/projects/api";
 
 const ProjectsOverview = () => {
+
     const {
         data: projects,
         error,
@@ -18,20 +19,26 @@ const ProjectsOverview = () => {
     if (error) {
         return <Alert color="danger">{error}</Alert>;
     }
+
     return (
        <>
-            <h1>Projects Overview</h1>
-           { projects.map((project) => (
-               <li key={project._id}>
-                   <Link to={route(Routes.ProjectsDetail, {id: project._id})}>
-                       {project.name}
-                   </Link>
-               </li>
-           ))}
-
-
+                {/* TODO figure out a way to fetch all the project info in the detail page useContext idk? */}
+               <h1>Projects Overview</h1>
+               {
+                   projects.map(
+                       (project) => (
+                       <li key={project._id}>
+                           <Link to={route(Routes.ProjectsDetail, {id: project._id})}>
+                               {project.name}
+                           </Link>
+                       </li>
+                     )
+                   )
+               }
        </>
     )
 };
+
+
 
 export default ProjectsOverview;

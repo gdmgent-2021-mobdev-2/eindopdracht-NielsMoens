@@ -1,11 +1,14 @@
 const Routes = Object.freeze({
     Login: '/login ',
     Home: '/home',
+
     ServicesDetail: '/services/:id',
     Services: '/services',
+
     Projects: '/projects',
     ProjectsDetail: '/projects/:id',
-    ProjectsDetailAddLog: '/projects/:id/add',
+    ProjectsDetailAddLog: '/projects/:id/',
+
     Clients: '/clients',
     ClientsDetail: '/clients/:id',
     ClientsEdit: '/clients/:id/edit',
