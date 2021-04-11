@@ -1,4 +1,4 @@
-import ClientForm from "../../Form/ClientForm";
+import ClientForm from "../../Create/Form/ClientForm";
 import useAuthApi from "../../../../../../core/hooks/useAuthApi";
 import {useHistory} from "react-router";
 import {useState} from "react";

@@ -5,7 +5,6 @@ import CreateClient from './Create/CreateClient'
 import ClientDetailContainer from "./Detail/ClientDetailContainer";
 import AdminRoute from "../../../Shared/Admin/AdminRoute";
 
-
 const Clients  = () => {
     return(
         <>
@@ -24,4 +23,4 @@ const Clients  = () => {
         </>
     )
 }
-export default Clients 
+export default Clients

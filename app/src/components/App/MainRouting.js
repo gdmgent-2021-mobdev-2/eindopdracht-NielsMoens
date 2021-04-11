@@ -5,6 +5,7 @@ import UserDashboard from "./Pages/UserDashboard/UserDashboard";
 import Projects from "./Pages/Projects/Project";
 import Clients from "./Pages/Clients/Clients";
 import { Routes } from "../../core/routing/routing";
+import Reviews from "./Pages/Reviews/Reviews";
 
 const MainRouting = () => {
     return (
@@ -20,6 +21,9 @@ const MainRouting = () => {
             </Route>
             <Route path={Routes.Clients}>
                 <Clients />
+            </Route>
+            <Route path={Routes.Reviews}>
+                <Reviews />
             </Route>
             <Route path={Routes.UserDashboard}>
                 <UserDashboard />

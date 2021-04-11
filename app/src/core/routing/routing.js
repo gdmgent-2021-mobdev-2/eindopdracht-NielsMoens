@@ -15,6 +15,10 @@ const Routes = Object.freeze({
     ClientsDetail: '/clients/:id',
     ClientsEdit: '/clients/:id/edit',
     ClientsCreate: '/clients/create',
+
+    Reviews: '/reviews',
+    ReviewsCreate: '/reviews/create',
+
     UserDashboard: '/userdashboard',
 });
 

@@ -1,5 +1,4 @@
 import {useCallback, useEffect, useState} from "react";
-
 import Input from "../../../../Design/Input";
 import * as yup from 'yup';
 import { getValidationErrors } from "../../../../../core/utils/validation";
@@ -19,7 +18,7 @@ const defaultData = {
     company: '',
 };
 
-const ClientForm = ({onSubmit, initialData ={}, disabled}) => {
+const ReviewForm = ({onSubmit, initialData ={}, disabled}) => {
     const [isTouched, setIsTouched] = useState(false)
     const[data, setData] = useState({
         ...defaultData,
@@ -104,4 +103,4 @@ const ClientForm = ({onSubmit, initialData ={}, disabled}) => {
     )
 }
 
-export  default ClientForm;
+export  default ReviewForm;

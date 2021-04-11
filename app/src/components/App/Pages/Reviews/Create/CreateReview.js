@@ -1,4 +1,4 @@
-import ClientForm from "./Form/ClientForm";
+import ReviewForm from "../Form/ReviewForm";
 import useAuthApi from "../../../../../core/hooks/useAuthApi";
 import {useHistory} from "react-router";
 import {useState} from "react";
@@ -6,7 +6,7 @@ import {createClient} from "../../../../../core/modules/clients/api";
 import {Routes} from "../../../../../core/routing/routing";
 import ErrorAlert from "../../../../Shared/ErrorAlert";
 
-const CreateClient = () => {
+const CreateReview = () => {
     const withAuth = useAuthApi();
     const history = useHistory();
     const [isLoading, setIsLoading] = useState();
@@ -28,8 +28,8 @@ const CreateClient = () => {
         <>
             <h1>Create Client</h1>
             <ErrorAlert error={error}></ErrorAlert>
-            <ClientForm onSubmit={handleSubmit} disabled={isLoading} />
+            <ReviewForm onSubmit={handleSubmit} disabled={isLoading} />
         </>
     )
 }
-export default CreateClient;
+export default CreateReview;

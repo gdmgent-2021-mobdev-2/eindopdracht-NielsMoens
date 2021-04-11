@@ -18,6 +18,10 @@ const navItems = [{
     'label': 'Clients',
     'route': Routes.Clients,
     'icon': null,
+}, {
+    'label': 'Reviews',
+    'route': Routes.Reviews,
+    'icon': null,
 }
 ]
 

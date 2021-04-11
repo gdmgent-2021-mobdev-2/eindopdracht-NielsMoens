@@ -17,7 +17,6 @@ const adminRouter = express.Router();
 // client routes
 authRouter.get('/clients', clientController.getClients)
 authRouter.get('/clients/:id', clientController.getClientById)
-
 adminRouter.post('/clients', clientController.createClients)
 adminRouter.delete('/clients/:id', clientController.deleteClientById)
 adminRouter.patch('/clients/:id', clientController.updateClientById)
@@ -25,7 +24,6 @@ adminRouter.patch('/clients/:id', clientController.updateClientById)
 // Projects
 authRouter.get('/projects', projectController.getProjects)
 authRouter.get('/projects/:id', projectController.getProjectById)
-
 adminRouter.post('/projects', projectController.createProject)
 adminRouter.delete('/projects/:id', projectController.deleteProjectById)
 adminRouter.patch('/projects/:id', projectController.updateProjectById)
@@ -36,9 +34,9 @@ authRouter.post('/projects/:projectId/logs', logsController.createLogByProject);
 
 // review routes
 authRouter.get('/reviews', reviewController.getReviews)
-
-adminRouter.post('/reviews', reviewController.createReviews)
+authRouter.post('/reviews', reviewController.createReviews)
 adminRouter.delete('/reviews/:id', reviewController.deleteReviewsById)
+
 
 authRouter.use(withRole(Roles.admin), adminRouter);
 
