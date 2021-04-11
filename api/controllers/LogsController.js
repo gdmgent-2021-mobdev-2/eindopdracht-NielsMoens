@@ -7,6 +7,7 @@ class LogsController {
             const { projectId } = params;
 
             let query = { projectId };
+
             // only admin can view all logs
             if (!user.isAdmin()) {
                 query = {

@@ -1,12 +1,13 @@
-import ClientForm from "../Form/ClientForm";
+
 import useAuthApi from "../../../../../core/hooks/useAuthApi";
 import {useHistory} from "react-router";
 import {useState} from "react";
-import {createClient} from "../../../../../core/modules/clients/api";
+import {createProject} from "../../../../../core/modules/projects/api";
 import {Routes} from "../../../../../core/routing/routing";
 import ErrorAlert from "../../../../Shared/ErrorAlert";
+import ProjectForm from "../Form/ProjectForm";
 
-const CreateClient = () => {
+const CreateProject = () => {
     const withAuth = useAuthApi();
     const history = useHistory();
     const [isLoading, setIsLoading] = useState();
@@ -14,9 +15,9 @@ const CreateClient = () => {
 
     const handleSubmit = (data) => {
         setIsLoading(true);
-        withAuth(createClient(data))
+        withAuth(createProject(data))
             .then(() => {
-                history.push(Routes.Clients);
+                history.push(Routes.Projects);
             })
             .catch((err) => {
                 setError(err);
@@ -26,10 +27,10 @@ const CreateClient = () => {
 
     return (
         <>
-            <h1>Create Client</h1>
+            <h1>Create Project</h1>
             <ErrorAlert error={error}></ErrorAlert>
-            <ClientForm onSubmit={handleSubmit} disabled={isLoading} />
+            <ProjectForm onSubmit={handleSubmit} disabled={isLoading} />
         </>
     )
 }
-export default CreateClient;
+export default CreateProject;

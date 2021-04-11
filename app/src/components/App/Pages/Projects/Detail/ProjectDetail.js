@@ -4,6 +4,9 @@ import {fetchProject} from "../../../../../core/modules/projects/api";
 import {useCallback} from "react";
 import LogOverview from "./LogOverview/LogOverview";
 import Button from "../../../../Design/Button";
+import AdminRoute from "../../../../Shared/Admin/AdminRoute";
+import AdminContainer from "../../../../Shared/Admin/AdminContainer";
+
 
 const ProjectDetail = () => {
     const { id }=useParams();
@@ -30,12 +33,13 @@ const ProjectDetail = () => {
 
                 project && <h1>Product detail page of '{project.name}' WOEHOOE  </h1>
             }
+            <AdminContainer>
+                <Button // onClick={handleCreaLog}te
+                >
+                    Create Log
+                </Button>
+            </AdminContainer>
 
-            <Button
-                    // onClick={handleCreateLog}
-            >
-                Create Log
-            </Button>
             <LogOverview projectId={id} />
         </>
     )

@@ -4,6 +4,7 @@ import Alert from "../../../../Design/Alert";
 import LoadingSpinner from "../../../../Design/LoadingSpinner";
 import useFetch from "../../../../../core/hooks/useFetch";
 import {fetchProjects} from "../../../../../core/modules/projects/api";
+import AdminContainer from "../../../../Shared/Admin/AdminContainer";
 
 const ProjectsOverview = () => {
 
@@ -23,7 +24,11 @@ const ProjectsOverview = () => {
     return (
        <>
                 {/* TODO figure out a way to fetch all the project info in the detail page useContext idk? */}
-               <h1>Projects Overview</h1>
+            <h1>Projects Overview</h1>
+            <AdminContainer>
+                <Link to={Routes.ProjectsCreate}>Create Project</Link>
+            </AdminContainer>
+            <ul>
                {
                    projects.map(
                        (project) => (
@@ -35,6 +40,7 @@ const ProjectsOverview = () => {
                      )
                    )
                }
+            </ul>
        </>
     )
 };

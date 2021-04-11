@@ -34,11 +34,12 @@ const LogOverview = ({projectId}) =>{
                             to={route(Routes.ProjectsDetailAddLog, {
                                 id: log._id,
                             })}>
-                            <div>
-                                <h2 className="h4">{log.title}</h2>
-                                <p className="text-black-50">{log.description}</p>
-                            </div>
                         </Link>
+                        <div>
+                            <h2 className="h4">{log.title}</h2>
+                            <p className="text-black-50">{log.description}</p>
+                        </div>
+
                     </li>
                 ))}
             </ul>

@@ -7,6 +7,8 @@ const Routes = Object.freeze({
 
     Projects: '/projects',
     ProjectsDetail: '/projects/:id',
+    ProjectsEdit: '/projects/:id/edit',
+    ProjectsCreate: '/projects/create',
     ProjectsDetailAddLog: '/projects/:id/',
 
     Clients: '/clients',
