@@ -3,6 +3,7 @@ import Input from "../../../../Design/Input";
 import * as yup from 'yup';
 import { getValidationErrors } from "../../../../../core/utils/validation";
 import Button from "../../../../Design/Button";
+import ClientSelect from "../Select/ClientSelect";
 
 const schema = yup.object().shape({
     name: yup.string().required(),
@@ -23,10 +24,31 @@ const ProjectForm = ({onSubmit, initialData ={}, disabled}) => {
 
     const[errors, setErrors] = useState({});
     const handleChange = (e) => {
-        setData ({
-            ...data,
-            [e.target.name] : e.target.value
-        })
+        // thanks for the help with this @KobeDev ^‿^
+        if(e.target.localName === 'select') {
+            console.log(e.target.value)
+            const text = e.target.[e.target.options.selectedIndex].innerHTML;
+            const res = text.split(" ");
+
+            const firstName = res.splice(0, Math.ceil(res.length / 2));
+
+            const lastName = res.splice((Math.ceil(res.length / 2)) - 1, res.length);
+            setData({
+                ...data,
+                client: {
+                    _id: e.target.value,
+                    firstName: firstName[0],
+                    lastName: lastName[0]
+                },
+                clientId: e.target.value,
+            })
+        } else {
+            setData({
+                ...data,
+                [e.target.name]: e.target.value
+            })
+
+        }
     }
 
     const validate = useCallback((data, onSucces) => {
@@ -58,8 +80,11 @@ const ProjectForm = ({onSubmit, initialData ={}, disabled}) => {
         })
     };
 
+
+
     return (
         <form onSubmit={handleSubmit} noValidate={true}>
+
             <label htmlFor="name"> Name</label>
             <Input type="text" name="name"
                 value={data.name}
@@ -76,13 +101,15 @@ const ProjectForm = ({onSubmit, initialData ={}, disabled}) => {
                 error={errors.description}
             />
 
-            {/*add a client with a select form of all the registered clients*/}
-            {/*<Input type="text" name="description"*/}
-            {/*       value={data.description}*/}
-            {/*       disabled={disabled}*/}
-            {/*       onChange={handleChange}*/}
-            {/*       error={errors.description}*/}
-            {/*/>*/}
+
+            <ClientSelect
+                name="clientId"
+                label="Client"
+                value={data.clientId}
+                disabled={disabled}
+                onChange={handleChange}
+                error={errors.clientId}
+            />
 
             <Button type="submit" disabled={disabled}>
                 {data._id ? 'Update' : 'Create'}

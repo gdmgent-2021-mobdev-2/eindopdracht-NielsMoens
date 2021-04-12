@@ -4,6 +4,7 @@ import {Routes} from "../../../../core/routing/routing";
 import ProjectsOverview from "../Projects/Overview/ProjectsOverview"
 import AdminRoute from "../../../Shared/Admin/AdminRoute";
 import CreateProject from "./Create/CreateProject";
+import ProjectDetailContainer from "./Detail/ProjectDetailContainer";
 
 const Projects = () => {
     return(
@@ -13,7 +14,7 @@ const Projects = () => {
                     <CreateProject />
                 </AdminRoute>
                 <Route path={Routes.ProjectsDetail}>
-                    <ProjectDetail/>
+                    <ProjectDetailContainer/>
                 </Route>
                 <Route path={Routes.Projects}>
                         <ProjectsOverview />
