@@ -80,11 +80,8 @@ const ProjectForm = ({onSubmit, initialData ={}, disabled}) => {
         })
     };
 
-
-
     return (
         <form onSubmit={handleSubmit} noValidate={true}>
-
             <label htmlFor="name"> Name</label>
             <Input type="text" name="name"
                 value={data.name}
@@ -100,7 +97,6 @@ const ProjectForm = ({onSubmit, initialData ={}, disabled}) => {
                 onChange={handleChange}
                 error={errors.description}
             />
-
 
             <ClientSelect
                 name="clientId"

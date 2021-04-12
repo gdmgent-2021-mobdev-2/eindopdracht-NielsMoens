@@ -10,8 +10,10 @@ const fetchLogsByProject = (projectId) => (headers) => {
 };
 
 const createLogByProject = (projectId, data) => (headers) => {
+    const { _id } = data;
+    console.log('test',projectId);
     return fetch(
-        `${process.env.REACT_APP_BASE_API}/projects/${projectId}/logs`,
+        `${process.env.REACT_APP_BASE_API}/projects/${projectId}/logs/`,
         {
             method: 'POST',
             headers: createHeaders(headers),
