@@ -9,6 +9,7 @@ import {Routes} from "../../../../../core/routing/routing";
 import {Redirect, Route, Switch} from "react-router-dom";
 import ProjectDetail from "./ProjectDetail";
 import EditProject from "../Edit/EditProject";
+import CreateUpdate from "./Logs/Create/CreateUpdates";
 
 const ProjectDetailContainer = ({ }) => {
     const { id }= useParams();
@@ -35,6 +36,9 @@ const ProjectDetailContainer = ({ }) => {
     return (
         <>
             <Switch>
+                <AdminRoute path={Routes.ProjectsDetailAddLog}>
+                    <CreateUpdate />
+                </AdminRoute>
                 <AdminRoute path={Routes.ProjectsEdit}>
                     <EditProject project={project} onUpdate={(data) => setData(data)} />
                 </AdminRoute>

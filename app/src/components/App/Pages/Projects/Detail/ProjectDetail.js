@@ -31,12 +31,10 @@ const ProjectDetail = () => {
 
     return (
         <>
-            <div>
 
                 {
                     project &&
                     <div className="container">
-
                             <h1 className="my-4">{project.name}</h1>
                             <AdminContainer>
                                 <Link to={route(Routes.ProjectsEdit, {id: project._id})}>
@@ -45,15 +43,12 @@ const ProjectDetail = () => {
                                     </Button>
                                 </Link>
 
-                                <Link to={Routes.ProjectsDetailAddLog}>
+                                <Link to={route(Routes.ProjectsDetailAddLog, {id: project._id})}>
                                     <Button color='outline-dark'>
                                          Add Update
                                     </Button>
                                 </Link>
                             </AdminContainer>
-
-
-
                         <div className="row">
                             <div className="col-md-8">
                                 <Image className={'card-img-top'}
@@ -72,9 +67,10 @@ const ProjectDetail = () => {
                         </div>
                     </div>
                 }
+            <AdminContainer>
+                <LogOverview projectId={id} />
+            </AdminContainer>
 
-            </div>
-            <LogOverview projectId={id} />
         </>
     )
 };

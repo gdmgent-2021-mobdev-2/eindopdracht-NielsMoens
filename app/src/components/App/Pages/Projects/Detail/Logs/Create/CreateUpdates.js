@@ -1,11 +1,11 @@
-import LogForm from "../Form/LogForm";
+import LogForm from "../Form/UpdateForm";
 import useAuthApi from "../../../../../../../core/hooks/useAuthApi";
 import {useHistory} from "react-router";
 import {useState} from "react";
-import {createLogByProject} from "../../../../../../../core/modules/logs/api";
 import {Routes} from "../../../../../../../core/routing/routing";
 import ErrorAlert from "../../../../../../Shared/ErrorAlert";
 import {createLogByProject} from "../../../../../../../core/modules/logs/api";
+import AdminContainer from "../../../../../../Shared/Admin/AdminContainer";
 
 const CreateUpdate = () => {
     const withAuth = useAuthApi();

@@ -1,8 +1,6 @@
 import {useCallback} from "react";
 import {fetchLogsByProject} from "../../../../../../../core/modules/logs/api";
 import useFetch from "../../../../../../../core/hooks/useFetch";
-import {Link} from "react-router-dom";
-import {route, Routes} from "../../../../../../../core/routing/routing";
 import Spinner from "../../../../../../Design/LoadingSpinner";
 import Alert from "../../../../../../Design/Alert";
 
