@@ -3,29 +3,33 @@ import Input from "../../../../Design/Input";
 import * as yup from 'yup';
 import { getValidationErrors } from "../../../../../core/utils/validation";
 import Button from "../../../../Design/Button";
-import ClientSelect from "../../Projects/Select/ClientSelect";
 import ReviewSelect from "../Select/ReviewSelect";
+import {useAuth} from "../../../../Auth/AuthProvider";
+import {fetchProjects} from "../../../../../core/modules/projects/api";
 
 const schema = yup.object().shape({
     name: yup.string().required(),
-    lastName: yup.string().required(),
     score: yup.number().required(),
+    title: yup.string().required(),
     description: yup.string().required(),
 });
 
 const defaultData = {
-    firstName: '',
-    lastName: '',
+    name: '',
     score: '',
+    title : '',
     description: '',
 };
 
 const ReviewForm = ({onSubmit, initialData ={}, disabled}) => {
+
+
     const [isTouched, setIsTouched] = useState(false)
     const[data, setData] = useState({
         ...defaultData,
         ...initialData,
     });
+
     const[errors, setErrors] = useState({});
 
     const handleChange = (e) => {
@@ -47,7 +51,7 @@ const ReviewForm = ({onSubmit, initialData ={}, disabled}) => {
                 ...data,
                 [e.target.name]: e.target.value
             })
-            console.log(data)
+
         }
     }
 
@@ -69,8 +73,6 @@ const ReviewForm = ({onSubmit, initialData ={}, disabled}) => {
         }
     }, [ data]);
 
-
-
     const handleSubmit = (e) => {
         // otherwise the browser will reload the webpage
         e.preventDefault();
@@ -82,19 +84,23 @@ const ReviewForm = ({onSubmit, initialData ={}, disabled}) => {
 
     return (
         <form onSubmit={handleSubmit} noValidate={true}>
-            <label htmlFor="firstName">firstName</label>
-            <Input type="text" name="firstName"
-                value={data.firstName}
+            <label htmlFor="name">name</label>
+            <Input type="text" name="name"
+                value={data.name}
                 disabled={disabled}
                 onChange={handleChange}
-                error={errors.firstName}
+                error={errors.name}
             />
-            <label htmlFor="firstName">firstName</label>
-            <Input type="text" name="firstName"
-                   value={data.firstName}
+            <label htmlFor="score">score</label>
+            <Input type="number"
+                   name="score"
+                   placeholder="give a score between 0-5"
+                   value={data.score}
                    disabled={disabled}
                    onChange={handleChange}
-                   error={errors.firstName}
+                   error={errors.score}
+                   min={0}
+                   max={5}
             />
 
             <ReviewSelect
@@ -106,12 +112,20 @@ const ReviewForm = ({onSubmit, initialData ={}, disabled}) => {
                 error={errors.projectId}
             />
 
-            <label htmlFor="firstName">firstName</label>
-            <Input type="text" name="firstName"
-                   value={data.firstName}
+            <label htmlFor="title">title</label>
+            <Input type="text" name="title"
+                   value={data.title}
                    disabled={disabled}
                    onChange={handleChange}
-                   error={errors.firstName}
+                   error={errors.title}
+            />
+
+            <label htmlFor="description">description</label>
+            <Input type="text" name="description"
+                   value={data.description}
+                   disabled={disabled}
+                   onChange={handleChange}
+                   error={errors.description}
             />
 
             <Button type="submit" disabled={disabled}>
@@ -121,4 +135,4 @@ const ReviewForm = ({onSubmit, initialData ={}, disabled}) => {
     )
 }
 
-export  default ReviewForm;
+export default ReviewForm;

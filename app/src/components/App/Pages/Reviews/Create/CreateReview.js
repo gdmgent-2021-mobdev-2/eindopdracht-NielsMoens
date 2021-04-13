@@ -2,9 +2,9 @@ import ReviewForm from "../Form/ReviewForm";
 import useAuthApi from "../../../../../core/hooks/useAuthApi";
 import {useHistory} from "react-router";
 import {useState} from "react";
-import {createClient} from "../../../../../core/modules/clients/api";
 import {Routes} from "../../../../../core/routing/routing";
 import ErrorAlert from "../../../../Shared/ErrorAlert";
+import {createReview} from "../../../../../core/modules/reviews/api";
 
 const CreateReview = () => {
     const withAuth = useAuthApi();
@@ -13,10 +13,11 @@ const CreateReview = () => {
     const [error, setError] = useState();
 
     const handleSubmit = (data) => {
+        console.log(data);
         setIsLoading(true);
-        withAuth(createClient(data))
+        withAuth(createReview(data))
             .then(() => {
-                history.push(Routes.Clients);
+                history.push(Routes.Reviews);
             })
             .catch((err) => {
                 setError(err);

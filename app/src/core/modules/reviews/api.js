@@ -23,4 +23,4 @@ const updateReview = (data) => (headers) => {
     });
 };
 
-export { fetchReviews, createReview, createHeaders,updateReview}
+export { fetchReviews, createReview, updateReview}
