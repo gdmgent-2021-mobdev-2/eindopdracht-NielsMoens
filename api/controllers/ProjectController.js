@@ -29,7 +29,6 @@ class ProjectController {
 
     createProject = async (req, res, next) => {
         try {
-            console.log(req.body)
             const client = new Project(req.body);
             const c = await client.save();
             res.status(200).json(c);

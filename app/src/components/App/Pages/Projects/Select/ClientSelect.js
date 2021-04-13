@@ -17,8 +17,11 @@ const ClientSelect = (props) => {
     }, [withAuth]);
 
     const options = clients
-        ? clients.map((c) => ({ value: c._id, label: c.company }))
+        ? clients.map((c) => (
+            {
+                value: c._id, label: c.company}))
         : null;
+
 
     return <Select options={options} {...props} />;
 };

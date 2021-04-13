@@ -2,7 +2,6 @@ import ReviewOverview from "./Overview/ReviewOverview";
 import {Redirect, Route, Switch} from "react-router-dom";
 import {Routes} from "../../../../core/routing/routing";
 import CreateReview from './Create/CreateReview'
-import AdminRoute from "../../../Shared/Admin/AdminRoute";
 
 const Reviews  = () => {
     return(

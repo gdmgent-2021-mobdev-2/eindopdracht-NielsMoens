@@ -3,11 +3,12 @@ import Input from "../../../../Design/Input";
 import * as yup from 'yup';
 import { getValidationErrors } from "../../../../../core/utils/validation";
 import Button from "../../../../Design/Button";
+import ClientSelect from "../../Projects/Select/ClientSelect";
+import ReviewSelect from "../Select/ReviewSelect";
 
 const schema = yup.object().shape({
-    firstName: yup.string().required(),
+    name: yup.string().required(),
     lastName: yup.string().required(),
-    project: yup.string().required(),
     score: yup.number().required(),
     description: yup.string().required(),
 });
@@ -15,7 +16,6 @@ const schema = yup.object().shape({
 const defaultData = {
     firstName: '',
     lastName: '',
-    project: '',
     score: '',
     description: '',
 };
@@ -29,10 +29,26 @@ const ReviewForm = ({onSubmit, initialData ={}, disabled}) => {
     const[errors, setErrors] = useState({});
 
     const handleChange = (e) => {
-        setData ({
-            ...data,
-            [e.target.name] : e.target.value
-        })
+        // thanks for the help with this @KobeDev ^‿^
+        if(e.target.localName === 'select') {
+            const text = e.target.[e.target.options.selectedIndex].innerHTML;
+            const res = text.split(" ");
+            const name = res.splice(0, Math.ceil(res.length / 2));
+            setData({
+                ...data,
+                project: {
+                    _id: e.target.value,
+                    name: name[0],
+                },
+                projectId: e.target.value,
+            })
+        } else {
+            setData({
+                ...data,
+                [e.target.name]: e.target.value
+            })
+            console.log(data)
+        }
     }
 
     const validate = useCallback((data, onSucces) => {
@@ -73,29 +89,29 @@ const ReviewForm = ({onSubmit, initialData ={}, disabled}) => {
                 onChange={handleChange}
                 error={errors.firstName}
             />
-
-            <label htmlFor="lastName">project</label>
-            <Input type="text" name="lastName"
-                value={data.lastName}
-                disabled={disabled}
-                onChange={handleChange}
-                error={errors.lastName}
-            />
-
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor="firstName">firstName</label>
             <Input type="text" name="firstName"
-                value={data.firstName}
-                disabled={disabled}
-                onChange={handleChange}
-                error={errors.firstName}
+                   value={data.firstName}
+                   disabled={disabled}
+                   onChange={handleChange}
+                   error={errors.firstName}
             />
 
-            <label htmlFor="lastName">Last Name</label>
-            <Input type="text" name="lastName"
-                value={data.lastName}
+            <ReviewSelect
+                name="projectId"
+                label="Project"
+                value={data.projectId}
                 disabled={disabled}
                 onChange={handleChange}
-                error={errors.lastName}
+                error={errors.projectId}
+            />
+
+            <label htmlFor="firstName">firstName</label>
+            <Input type="text" name="firstName"
+                   value={data.firstName}
+                   disabled={disabled}
+                   onChange={handleChange}
+                   error={errors.firstName}
             />
 
             <Button type="submit" disabled={disabled}>

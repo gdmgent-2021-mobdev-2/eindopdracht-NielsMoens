@@ -25,7 +25,7 @@ const ReviewOverview = () => {
         return <Alert color="danger">{error}</Alert>;
     }
 
-
+    console.log(reviews)
     return (
         <>
             <h1>Reviews</h1>
@@ -35,11 +35,9 @@ const ReviewOverview = () => {
             <ul>
                 { reviews.map((review) => (
                     <li key={review._id}>
-                        {
-                            // admin ? <Link to={route(Routes.ClientsDetail, {id: review._id})}>{review.name}</Link>
-                            // : <p> {client.name}</p>
-                            <p>JA WE ZEN DER</p>
-                        }
+                            <h5>{review.title}</h5>
+                            <p> {review.name}</p>
+                            <p>{review.description}</p>
                     </li>
                 ))}
             </ul>

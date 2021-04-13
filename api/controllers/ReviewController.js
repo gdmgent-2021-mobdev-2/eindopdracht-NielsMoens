@@ -5,13 +5,26 @@ const { Review } = require('../models/Review');
 class ReviewController{
     getReviews = async (req, res, next) => {
         try{
-            const review = await Review.find().exec()
-            res.status(200).json(review);
+            const projects = await Review.find().lean().populate('project', ['name']).exec();
+            res.status(200).json(projects);
         } catch (e){
             next(e);
         }
     }
 
+    getProjectById = async (req, res, next) => {
+        try {
+            const { id } = req.params;
+            const project = await Review.findById(id).populate('project').exec();
+            if (project) {
+                res.status(200).json(project);
+            } else {
+                next(new NotFoundError());
+            }
+        } catch (e) {
+            next(e);
+        }
+    }
     createReviews = async (req, res, next) => {
         try {
             const review = new Review(req.body);

@@ -2,19 +2,19 @@ const mongoose = require('mongoose');
 
 //  schema
 const reviewSchema = new mongoose.Schema({
-    firstName: {
+    name: {
         type: String,
         required: true,
     },
-    lastName: {
-        type: String,
+    projectId : {
+        type: 'ObjectId',
         required: true,
     },
     score: {
         type: "Number",
         required: true,
     },
-    title : {
+    title: {
         type: String,
         required: true,
     },
@@ -35,9 +35,12 @@ const reviewSchema = new mongoose.Schema({
 });
 
 
-reviewSchema.virtual('name').get(function() {
-    const review = this;
-    return `${review.firstName} ${review.lastName}`;
+
+reviewSchema.virtual('project', {
+    ref: 'Project',
+    localField: 'projectId',
+    foreignField: '_id',
+    justOne: true,
 });
 
 //  models
