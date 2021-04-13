@@ -30,7 +30,7 @@ const ReviewOverview = () => {
         <>
             <h1>Reviews</h1>
             <Route>
-                <Link to={Routes.Reviews}>Create review</Link>
+                <Link to={Routes.ReviewsCreate}>Create review</Link>
             </Route>
             <ul>
                 { reviews.map((review) => (

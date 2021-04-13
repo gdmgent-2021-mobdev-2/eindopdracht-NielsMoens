@@ -27,7 +27,6 @@ const UpdateForm = ({onSubmit, initialData = {}, disabled}) => {
             ...data,
             [e.target.name] : e.target.value
         })
-        console.log(data)
     }
 
     const validate = useCallback((data, onSucces) => {
@@ -39,7 +38,7 @@ const UpdateForm = ({onSubmit, initialData = {}, disabled}) => {
             }).catch((err) => {
             setErrors(getValidationErrors(err))
         });
-    },);
+    },[data]);
 
     // so the error alert messages go away when the user starts typing in the form
     useEffect(()=> {
@@ -49,7 +48,6 @@ const UpdateForm = ({onSubmit, initialData = {}, disabled}) => {
     }, [data]);
 
 
-
     const handleSubmit = (e) => {
         // otherwise the browser will reload the webpage
         e.preventDefault();
@@ -57,7 +55,6 @@ const UpdateForm = ({onSubmit, initialData = {}, disabled}) => {
         validate(data, () => {
             onSubmit(data)
         })
-        console.log(data)
     };
 
     return (

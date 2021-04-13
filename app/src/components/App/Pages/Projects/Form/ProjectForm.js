@@ -26,12 +26,9 @@ const ProjectForm = ({onSubmit, initialData ={}, disabled}) => {
     const handleChange = (e) => {
         // thanks for the help with this @KobeDev ^‿^
         if(e.target.localName === 'select') {
-            console.log(e.target.value)
             const text = e.target.[e.target.options.selectedIndex].innerHTML;
             const res = text.split(" ");
-
             const firstName = res.splice(0, Math.ceil(res.length / 2));
-
             const lastName = res.splice((Math.ceil(res.length / 2)) - 1, res.length);
             setData({
                 ...data,

@@ -36,11 +36,11 @@ const ProjectDetailContainer = ({ }) => {
     return (
         <>
             <Switch>
-                <AdminRoute path={Routes.ProjectsDetailAddLog}>
-                    <CreateUpdate />
-                </AdminRoute>
                 <AdminRoute path={Routes.ProjectsEdit}>
                     <EditProject project={project} onUpdate={(data) => setData(data)} />
+                </AdminRoute>
+                <AdminRoute path={Routes.ProjectsDetailAddLog}>
+                    <CreateUpdate  project={project} />
                 </AdminRoute>
                 <Route path={Routes.ProjectsDetail}>
                     <ProjectDetail project={project} />

@@ -5,9 +5,8 @@ import {useState} from "react";
 import {Routes} from "../../../../../../../core/routing/routing";
 import ErrorAlert from "../../../../../../Shared/ErrorAlert";
 import {createLogByProject} from "../../../../../../../core/modules/logs/api";
-import AdminContainer from "../../../../../../Shared/Admin/AdminContainer";
 
-const CreateUpdate = () => {
+const CreateUpdate = ({project}) => {
     const withAuth = useAuthApi();
     const history = useHistory();
     const [isLoading, setIsLoading] = useState();
@@ -15,9 +14,9 @@ const CreateUpdate = () => {
 
     const handleSubmit = (data) => {
         setIsLoading(true);
-        withAuth(createLogByProject(data))
+        withAuth(createLogByProject(project.id, data))
             .then(() => {
-                history.push(Routes.ProjectsDetailAddLog);
+                history.push(Routes.Projects);
             })
             .catch((err) => {
                 setError(err);

@@ -5,17 +5,19 @@ import { getValidationErrors } from "../../../../../core/utils/validation";
 import Button from "../../../../Design/Button";
 
 const schema = yup.object().shape({
-    email: yup.string().email().required(),
-    company: yup.string().required(),
     firstName: yup.string().required(),
     lastName: yup.string().required(),
+    project: yup.string().required(),
+    score: yup.number().required(),
+    description: yup.string().required(),
 });
 
 const defaultData = {
     firstName: '',
     lastName: '',
-    email: '',
-    company: '',
+    project: '',
+    score: '',
+    description: '',
 };
 
 const ReviewForm = ({onSubmit, initialData ={}, disabled}) => {
@@ -64,20 +66,20 @@ const ReviewForm = ({onSubmit, initialData ={}, disabled}) => {
 
     return (
         <form onSubmit={handleSubmit} noValidate={true}>
-            <label htmlFor="company">Company</label>
-            <Input type="text" name="company"
-                value={data.company}
+            <label htmlFor="firstName">firstName</label>
+            <Input type="text" name="firstName"
+                value={data.firstName}
                 disabled={disabled}
                 onChange={handleChange}
-                error={errors.company}
+                error={errors.firstName}
             />
 
-            <label htmlFor="email">Email address</label>
-            <Input type="email" name="email"
-                value={data.email}
+            <label htmlFor="lastName">project</label>
+            <Input type="text" name="lastName"
+                value={data.lastName}
                 disabled={disabled}
                 onChange={handleChange}
-                error={errors.email}
+                error={errors.lastName}
             />
 
             <label htmlFor="firstName">First Name</label>

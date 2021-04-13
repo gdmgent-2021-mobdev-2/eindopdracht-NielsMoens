@@ -10,7 +10,6 @@ const fetchLogsByProject = (projectId) => (headers) => {
 };
 
 const createLogByProject = (projectId, data) => (headers) => {
-    console.log('test',projectId);
     return fetch(
         `${process.env.REACT_APP_BASE_API}/projects/${projectId}/logs`,
         {

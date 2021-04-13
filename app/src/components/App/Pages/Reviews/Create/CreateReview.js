@@ -26,7 +26,7 @@ const CreateReview = () => {
 
     return (
         <>
-            <h1>Create Client</h1>
+            <h1>Write a Review </h1>
             <ErrorAlert error={error}></ErrorAlert>
             <ReviewForm onSubmit={handleSubmit} disabled={isLoading} />
         </>
