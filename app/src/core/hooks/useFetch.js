@@ -11,7 +11,6 @@ const useFetch = (apiCall) => {
     const [data, setData] = useState();
     const [error, setError] = useState();
 
-    console.log(apiCall)
     const fetchData = useCallback((isCurrent = true) => {
         withAuth(apiCall())
             .then((data) => isCurrent && setData(data))

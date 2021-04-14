@@ -23,8 +23,8 @@ const UserDetail = ({ user }) => {
                         Edit User
                     </Link>
                     <Link className="btn btn-danger" to={route(Routes.UsersDelete, {id: user._id})} onClick={handleDelete}>
-                    Delete User
-                </Link>
+                        Delete User
+                    </Link>
                 </div>
             </div>
         </>

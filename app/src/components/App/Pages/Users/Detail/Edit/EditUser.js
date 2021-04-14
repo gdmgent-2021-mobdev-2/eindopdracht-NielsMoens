@@ -1,4 +1,3 @@
-import UserForm from "../../Create/Form/UserForm";
 import useAuthApi from "../../../../../../core/hooks/useAuthApi";
 import {useHistory} from "react-router";
 import {useState} from "react";
@@ -42,7 +41,6 @@ const EditUser = ({ user , onUpdate}) => {
                 initialData={user}
                 disabled={isLoading}
             />
-
         </>
     )
 }

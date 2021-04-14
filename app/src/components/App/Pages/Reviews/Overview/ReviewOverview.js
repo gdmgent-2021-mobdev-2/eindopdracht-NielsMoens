@@ -3,10 +3,8 @@ import Alert from "../../../../Design/Alert";
 import Spinner from "../../../../Design/LoadingSpinner";
 import {Link, Route} from "react-router-dom";
 import {route, Routes} from "../../../../../core/routing/routing";
-// import AdminContainer from "../../../../Shared/Admin/AdminContainer";
-// import useAdmin from "../../../../../core/hooks/useAdmin";
 import {fetchReviews} from "../../../../../core/modules/reviews/api";
-import Image from "../../../../Design/Image";
+
 import Button from "../../../../Design/Button";
 
 
@@ -27,9 +25,7 @@ const ReviewOverview = () => {
         return <Alert color="danger">{error}</Alert>;
     }
 
-
     const fields: JSX.Element[] = [];
-
 
     console.log(reviews)
     return (
@@ -38,7 +34,7 @@ const ReviewOverview = () => {
             <h1>Reviews</h1>
             <Route>
                 <Link to={Routes.ReviewsCreate}>
-                    <Button color='outline-dark'>Create Project</Button>
+                    <Button color='outline-dark'>Write Review</Button>
                 </Link>
             </Route>
 

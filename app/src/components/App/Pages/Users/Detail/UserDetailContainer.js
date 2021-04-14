@@ -34,7 +34,7 @@ const UserDetailContainer = () => {
     if (error) {
         return <Alert color='danger'>{error}</Alert>
     }
-
+    console.log('test',user)
     if(user) {
         return(
             <>

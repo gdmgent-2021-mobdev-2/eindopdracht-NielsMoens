@@ -35,14 +35,14 @@ const UserOverview = () => {
                     <Button color='outline-dark'>Create User</Button>
                 </Link>
             </AdminContainer>
-                { users.map((user) => (
-                    <div className="list-group m-4">
-                        {
-                            admin ? <Link className="list-group-item list-group-item-action" to={route(Routes.UsersDetail, {id: user.id})}>{user.email}</Link>
-                                : <p> {user.name}</p>
-                        }
-                    </div>
-                ))}
+            { users.map((user) => (
+                <div className="list-group m-4">
+                    {
+                        admin ? <Link className="list-group-item list-group-item-action" to={route(Routes.UsersDetail, {id: user.id})}>{user.email}</Link>
+                            : <p> {user.name}</p>
+                    }
+                </div>
+            ))}
         </>
     )
 };

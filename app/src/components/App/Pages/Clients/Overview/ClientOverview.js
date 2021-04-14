@@ -29,6 +29,7 @@ const ClientOverview = () => {
     return (
         <>
             <h1>Clients</h1>
+            <p></p>
             <AdminContainer>
                 <Link to={Routes.ClientsCreate}>
                     <Button color='outline-dark'>Create client</Button>
@@ -38,7 +39,7 @@ const ClientOverview = () => {
                     <div className="list-group m-4">
                         {
                             admin ? <Link className="list-group-item list-group-item-action" to={route(Routes.ClientsDetail, {id: client._id})}>{client.name}</Link>
-                                : <p> {client.name}</p>
+                                : <span className="list-group-item list-group-item"> {client.name}</span>
                         }
                     </div>
                 ))}

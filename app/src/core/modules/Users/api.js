@@ -7,6 +7,7 @@ const fetchUsers = () => (headers) => {
 };
 
 const fetchUser = (id) => (headers) => {
+    console.log(id)
     return fetch(`${process.env.REACT_APP_BASE_API}/users/${id}`, {
         headers: createHeaders(headers),
     });
