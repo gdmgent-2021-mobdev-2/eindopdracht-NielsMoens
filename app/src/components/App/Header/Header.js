@@ -2,15 +2,8 @@ import { Link } from 'react-router-dom';
 import { Routes } from '../../../core/routing/routing';
 import UserLogin from "./login/UserLogin";
 
-const navItems = [{
-    'label': 'Home',
-    'route': Routes.Home,
-    'icon': null,
-}, {
-    'label': 'Services',
-    'route': Routes.Services,
-    'icon': null,
-}, {
+const navItems = [
+ {
     'label': 'Projects',
     'route': Routes.Projects,
     'icon': null,
