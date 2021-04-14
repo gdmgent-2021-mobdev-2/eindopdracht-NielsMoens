@@ -13,7 +13,7 @@ const db = new MongoClient()
 db.connect();
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 80;
 
 //middleware
 registerMiddleware(app);
