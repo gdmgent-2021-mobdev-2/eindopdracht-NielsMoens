@@ -29,12 +29,10 @@ const updateUser = (data) => (headers) => {
     });
 };
 
-const deleteUser = (data) => (headers) => {
-    const { _id } = data;
+const deleteUser = (_id) => (headers) => {
     return fetch(`${process.env.REACT_APP_BASE_API}/users/${_id}`, {
         method: 'DELETE',
         headers: createHeaders(headers),
-        body: JSON.stringify(data),
     });
 };
 export { fetchUsers, fetchUser, createUsers, createHeaders, updateUser, deleteUser}

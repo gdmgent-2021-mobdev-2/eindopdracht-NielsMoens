@@ -1,8 +1,16 @@
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {route, Routes} from "../../../../../../core/routing/routing";
+import {deleteUser} from "../../../../../../core/modules/Users/api";
+import useAuthApi from "../../../../../../core/hooks/useAuthApi";
 
 const UserDetail = ({ user }) => {
-    console.log(user)
+    const withAuth = useAuthApi();
+
+    const handleDelete = () => {
+        withAuth(deleteUser(user._id))
+        window.location.replace(route(Routes.Users));
+    };
+
     return (
         <>
             <h1>User Details</h1>
@@ -14,7 +22,7 @@ const UserDetail = ({ user }) => {
                     <Link className="btn btn-primary" to={route(Routes.UsersEdit, {id: user._id})}>
                         Edit User
                     </Link>
-                    <Link className="btn btn-danger" to={route(Routes.UsersDelete, {id: user._id})}>
+                    <Link className="btn btn-danger" to={route(Routes.UsersDelete, {id: user._id})} onClick={handleDelete}>
                     Delete User
                 </Link>
                 </div>

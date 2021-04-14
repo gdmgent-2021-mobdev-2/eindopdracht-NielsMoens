@@ -25,8 +25,6 @@ const Routes = Object.freeze({
     UsersEdit: '/users/:id/edit',
     UsersDelete: '/users/:id',
 
-
-
 });
 
 // replaces : values with values from object
