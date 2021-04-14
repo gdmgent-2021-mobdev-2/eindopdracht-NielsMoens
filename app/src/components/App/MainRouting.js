@@ -10,12 +10,6 @@ import Reviews from "./Pages/Reviews/Reviews";
 const MainRouting = () => {
     return (
         <Switch>
-            <Route path={Routes.Home}>
-                <Home />
-            </Route>
-            <Route path={Routes.Services}>
-                <Services />
-            </Route>
             <Route path={Routes.Projects}>
                 <Projects />
             </Route>
@@ -28,7 +22,7 @@ const MainRouting = () => {
             <Route path={Routes.UserDashboard}>
                 <UserDashboard />
             </Route>
-            <Redirect to={Routes.Home}/>
+            <Redirect to={Routes.Projects}/>
         </Switch>
     );
 };

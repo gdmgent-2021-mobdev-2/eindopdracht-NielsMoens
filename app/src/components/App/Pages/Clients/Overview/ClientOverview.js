@@ -6,6 +6,7 @@ import {Link} from "react-router-dom";
 import {route, Routes} from "../../../../../core/routing/routing";
 import AdminContainer from "../../../../Shared/Admin/AdminContainer";
 import useAdmin from "../../../../../core/hooks/useAdmin";
+import Button from "../../../../Design/Button";
 
 
 const ClientOverview = () => {
@@ -25,23 +26,22 @@ const ClientOverview = () => {
         return <Alert color="danger">{error}</Alert>;
     }
 
-
     return (
         <>
             <h1>Clients</h1>
             <AdminContainer>
-                <Link to={Routes.ClientsCreate}>Create client</Link>
+                <Link to={Routes.ClientsCreate}>
+                    <Button color='outline-dark'>Create client</Button>
+                </Link>
             </AdminContainer>
-            <ul>
                 { clients.map((client) => (
-                    <li key={client._id}>
+                    <div className="list-group">
                         {
-                            admin ? <Link to={route(Routes.ClientsDetail, {id: client._id})}>{client.name}</Link>
-                            : <p> {client.name}</p>
+                            admin ? <Link className="list-group-item list-group-item-action" to={route(Routes.ClientsDetail, {id: client._id})}>{client.name}</Link>
+                                : <p> {client.name}</p>
                         }
-                    </li>
+                    </div>
                 ))}
-            </ul>
         </>
     )
 };

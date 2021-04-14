@@ -6,6 +6,7 @@ import useFetch from "../../../../../core/hooks/useFetch";
 import {fetchProjects} from "../../../../../core/modules/projects/api";
 import AdminContainer from "../../../../Shared/Admin/AdminContainer";
 import Image from "../../../../Design/Image";
+import Button from "../../../../Design/Button";
 
 const ProjectsOverview = () => {
 
@@ -27,7 +28,8 @@ const ProjectsOverview = () => {
                 {/* TODO figure out a way to fetch all the project info in the detail page useContext idk? */}
             <h1>Projects Overview</h1>
             <AdminContainer>
-                <Link to={Routes.ProjectsCreate}>Create Project</Link>
+                <Link to={Routes.ProjectsCreate}>
+                    <Button color='outline-dark'>Create Project</Button></Link>
             </AdminContainer>
 
            <div className="card-group">
@@ -42,7 +44,7 @@ const ProjectsOverview = () => {
                                           alt={'logo'}/>
                                    <div className="card-body">
                                        <Link to={route(Routes.ProjectsDetail, {id: project._id})}>
-                                           <h5 className="card-title">  {project.name}</h5>
+                                           <h5 className="card-title text-dark">  {project.name}</h5>
                                        </Link>
 
                                        <p className="card-text"><small className="text-muted">Last updated <br></br> {project.updatedAt}</small></p>
