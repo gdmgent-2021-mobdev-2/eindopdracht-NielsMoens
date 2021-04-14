@@ -3,6 +3,7 @@ const ClientController = require("../controllers/ClientController");
 const ProjectController = require("../controllers/ProjectController");
 const LogsController = require("../controllers/LogsController")
 const ReviewController = require("../controllers/ReviewController");
+const UserController = require("../controllers/UserController");
 const {Roles} = require("../models/User");
 const {withRole} = require("../services/auth/auth.services");
 
@@ -10,9 +11,12 @@ const clientController = new ClientController();
 const projectController = new ProjectController();
 const logsController = new LogsController();
 const reviewController = new ReviewController();
+const userController = new UserController();
 
 const authRouter = express.Router();
 const adminRouter = express.Router();
+
+
 
 // client routes
 authRouter.get('/clients', clientController.getClients)
@@ -36,6 +40,13 @@ authRouter.post('/projects/:projectId/logs', logsController.createLogByProject);
 authRouter.get('/reviews', reviewController.getReviews)
 authRouter.post('/reviews', reviewController.createReviews)
 adminRouter.delete('/reviews/:id', reviewController.deleteReviewsById)
+
+// users
+authRouter.get('/users', userController.getUsers);
+authRouter.get('/users/:id', userController.getUserById);
+adminRouter.delete('/users/:id', userController.deleteUserById);
+adminRouter.post('/users', userController.register);
+adminRouter.patch('/users/:id', userController.updateUserById);
 
 
 authRouter.use(withRole(Roles.admin), adminRouter);

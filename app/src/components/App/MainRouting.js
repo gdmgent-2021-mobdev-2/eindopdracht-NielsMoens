@@ -1,11 +1,12 @@
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from "./Pages/Home/Home";
 import Services from "./Pages/Services/Services";
-import UserDashboard from "./Pages/UserDashboard/UserDashboard";
 import Projects from "./Pages/Projects/Project";
 import Clients from "./Pages/Clients/Clients";
 import { Routes } from "../../core/routing/routing";
 import Reviews from "./Pages/Reviews/Reviews";
+import UserOverview from "./Pages/Users/Overview/UserOverview";
+import User from "./Pages/Users/User";
 
 const MainRouting = () => {
     return (
@@ -19,8 +20,8 @@ const MainRouting = () => {
             <Route path={Routes.Reviews}>
                 <Reviews />
             </Route>
-            <Route path={Routes.UserDashboard}>
-                <UserDashboard />
+            <Route path={Routes.Users}>
+                <User />
             </Route>
             <Redirect to={Routes.Projects}/>
         </Switch>
