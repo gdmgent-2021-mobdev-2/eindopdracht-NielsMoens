@@ -3,6 +3,7 @@ import Input from "../../../../../../Design/Input";
 import * as yup from 'yup';
 import { getValidationErrors } from "../../../../../../../core/utils/validation";
 import Button from "../../../../../../Design/Button";
+import AdminContainer from "../../../../../../Shared/Admin/AdminContainer";
 
 const schema = yup.object().shape({
     email: yup.string().email().required(),
@@ -75,14 +76,16 @@ const UserUpdateForm = ({onSubmit, initialData ={}, disabled}) => {
                 onChange={handleChange}
                 error={errors.name}
             />
+            <AdminContainer>
+                <label htmlFor="email">role</label>
+                <Input type="role" name="role"
+                       value={data.role}
+                       disabled={disabled}
+                       onChange={handleChange}
+                       error={errors.role}
+                />
+            </AdminContainer>
 
-            <label htmlFor="email">role</label>
-            <Input type="role" name="role"
-                value={data.role}
-                disabled={disabled}
-                onChange={handleChange}
-                error={errors.role}
-            />
 
             <Button type="submit" disabled={disabled}>
                 {data._id ? 'Update' : 'Create'}

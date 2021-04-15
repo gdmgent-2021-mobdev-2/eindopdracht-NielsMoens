@@ -39,9 +39,9 @@ const UserDetailContainer = () => {
         return(
             <>
                 <Switch>
-                    <AdminRoute path={Routes.UsersEdit}>
+                    <Route path={Routes.UsersEdit}>
                         <EditUser user={user} onUpdate={(data) => setData(data)} />
-                    </AdminRoute>
+                    </Route>
                     <Route path={Routes.UsersDetail}>
                         <UserDetail user={user} />
                     </Route>

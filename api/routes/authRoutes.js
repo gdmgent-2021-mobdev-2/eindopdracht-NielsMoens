@@ -44,9 +44,9 @@ adminRouter.delete('/reviews/:id', reviewController.deleteReviewsById)
 // users
 authRouter.get('/users', userController.getUsers);
 authRouter.get('/users/:id', userController.getUserById);
+authRouter.patch('/users/:id', userController.updateUserById);
 adminRouter.delete('/users/:id', userController.deleteUserById);
 adminRouter.post('/users', userController.register);
-adminRouter.patch('/users/:id', userController.updateUserById);
 
 
 authRouter.use(withRole(Roles.admin), adminRouter);

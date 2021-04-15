@@ -60,21 +60,21 @@ const LoginPage = ({setUser}) => {
 
     return (
         <Container>
-            <div className="text-center" >
+             <div className="text-center" >
                 <form className={Styles['form-signin']} onSubmit={handleSubmit} noValidate={true}>
-                    <img className="mb-4" src="https://cdn.discordapp.com/attachments/609454665272393736/831269815984979975/unknown.png" alt="" width="72" height="72"/>
-                    <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+                   <img className="mb-4" src="https://cdn.discordapp.com/attachments/609454665272393736/831269815984979975/unknown.png" alt="" width="72" height="72"/>
+                     <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
 
-                    <label htmlFor="email" className="sr-only">Email address</label>
-                    <Input type="email" name="email" value={data.email} onChange={handleChange} error={errors.email} />
+                     <label htmlFor="email" className="sr-only">Email address</label>
+                     <Input type="email" name="email" value={data.email} onChange={handleChange} error={errors.email} />
 
                     <label htmlFor="password" className="sr-only">Password</label>
-                    <Input type="password" name="password" value={data.password} onChange={handleChange} error={errors.password} />
+                     <Input type="password" name="password" value={data.password} onChange={handleChange} error={errors.password} />
 
-                    <ErrorAlert err={error} />
-                    <Button color="primary" type="submit">Sign in</Button>
-                </form>
-            </div>
+                     <ErrorAlert err={error} />
+                     <Button color="primary" type="submit">Sign in</Button>
+                 </form>
+             </div>
         </Container>
     )
 };

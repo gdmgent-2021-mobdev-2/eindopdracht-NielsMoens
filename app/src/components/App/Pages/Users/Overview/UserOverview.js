@@ -8,9 +8,12 @@ import AdminContainer from "../../../../Shared/Admin/AdminContainer";
 import useAdmin from "../../../../../core/hooks/useAdmin";
 import Button from "../../../../Design/Button";
 import { fetchUsers} from "../../../../../core/modules/Users/api";
+import {useAuth} from "../../../../Auth/AuthProvider";
 
 
 const UserOverview = () => {
+    const {user} = useAuth();
+
     const {
         data: users,
         error,
@@ -29,20 +32,38 @@ const UserOverview = () => {
 
     return (
         <>
-            <h1> Users </h1>
+            <h1> Edit Profile Info </h1>
             <AdminContainer>
                 <Link to={Routes.UsersCreate}>
                     <Button color='outline-dark'>Create User</Button>
                 </Link>
             </AdminContainer>
-            { users.map((user) => (
-                <div className="list-group m-4">
-                    {
-                        admin ? <Link className="list-group-item list-group-item-action" to={route(Routes.UsersDetail, {id: user.id})}>{user.email}</Link>
-                            : <p> {user.name}</p>
-                    }
+
+            <div className="card " style={{width:"400px"}}>
+                <img className="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="Card image"></img>
+                <div className="card-body">
+                    <h4 className="card-text">{user.name} </h4>
+                    <p className="card-text">Email: {user.email} </p>
+                    <p className="card-text">Role: {user.role} </p>
+                    <Link className="btn btn-primary" to={route(Routes.UsersEdit, {id: user._id})}>
+                        Edit User
+                    </Link>
+                    <Link className="btn btn-danger" to={route(Routes.UsersDelete, {id: user._id})} >
+                        Delete User
+                    </Link>
                 </div>
-            ))}
+            </div>
+            <AdminContainer>
+                { users.map((u) => (
+                    <div className="list-group m-4">
+                        {
+                            <Link className="list-group-item list-group-item-action" to={route(Routes.UsersDetail, {id: u.id})}>{u.email}</Link>
+
+                        }
+                    </div>
+                ))}
+            </AdminContainer>
+
         </>
     )
 };
