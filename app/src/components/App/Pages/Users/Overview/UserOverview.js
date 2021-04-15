@@ -30,6 +30,7 @@ const UserOverview = () => {
         return <Alert color="danger">{error}</Alert>;
     }
 
+
     return (
         <>
             <h1> Edit Profile Info </h1>
@@ -40,7 +41,7 @@ const UserOverview = () => {
             </AdminContainer>
 
             <div className="card " style={{width:"400px"}}>
-                <img className="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="Card image"></img>
+                <img className="card-img-top" src={user.img} alt="Card image"></img>
                 <div className="card-body">
                     <h4 className="card-text">{user.name} </h4>
                     <p className="card-text">Email: {user.email} </p>
@@ -48,16 +49,19 @@ const UserOverview = () => {
                     <Link className="btn btn-primary" to={route(Routes.UsersEdit, {id: user._id})}>
                         Edit User
                     </Link>
-                    <Link className="btn btn-danger" to={route(Routes.UsersDelete, {id: user._id})} >
-                        Delete User
-                    </Link>
                 </div>
             </div>
             <AdminContainer>
                 { users.map((u) => (
                     <div className="list-group m-4">
                         {
-                            <Link className="list-group-item list-group-item-action" to={route(Routes.UsersDetail, {id: u.id})}>{u.email}</Link>
+                            <div className="card" >
+                                <img className="card-img-top" src={u.img} alt="Card image cap"/>
+                                    <div className="card-body">
+                                        <h5 className="card-title">{u.name} </h5>
+                                    </div>
+                                    <Link className="list-group-item list-group-item-action" to={route(Routes.UsersDetail, {id: u.id})}>{u.email}</Link>
+                            </div>
 
                         }
                     </div>
