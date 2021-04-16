@@ -50,8 +50,8 @@ authRouter.patch('/users/:id', userController.updateUserById);
 adminRouter.delete('/users/:id', userController.deleteUserById);
 adminRouter.post('/users', userController.register);
 
+// starred Items
 authRouter.get('/starredItems', starredItemsController.getStarredItems);
-
 authRouter.post('/starredItems', starredItemsController.createStarredItems);
 authRouter.delete('/starredItems/:id', starredItemsController.deleteStarredItems);
 
