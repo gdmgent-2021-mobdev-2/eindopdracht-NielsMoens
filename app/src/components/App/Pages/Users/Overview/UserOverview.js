@@ -1,7 +1,6 @@
 import useFetch from "../../../../../core/hooks/useFetch";
 import Alert from "../../../../Design/Alert";
 import Spinner from "../../../../Design/LoadingSpinner";
-import {fetchClients} from "../../../../../core/modules/clients/api";
 import {Link} from "react-router-dom";
 import {route, Routes} from "../../../../../core/routing/routing";
 import AdminContainer from "../../../../Shared/Admin/AdminContainer";

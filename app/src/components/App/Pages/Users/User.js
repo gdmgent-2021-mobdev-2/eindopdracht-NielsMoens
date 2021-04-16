@@ -22,5 +22,7 @@ const Users  = () => {
             </Switch>
         </>
     )
-}
+};
+
+
 export default Users

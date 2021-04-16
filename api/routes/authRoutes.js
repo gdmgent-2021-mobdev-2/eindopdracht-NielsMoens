@@ -4,6 +4,7 @@ const ProjectController = require("../controllers/ProjectController");
 const LogsController = require("../controllers/LogsController")
 const ReviewController = require("../controllers/ReviewController");
 const UserController = require("../controllers/UserController");
+const StarredItemsController = require("../controllers/StarredItemsController")
 const {Roles} = require("../models/User");
 const {withRole} = require("../services/auth/auth.services");
 
@@ -12,6 +13,7 @@ const projectController = new ProjectController();
 const logsController = new LogsController();
 const reviewController = new ReviewController();
 const userController = new UserController();
+const starredItemsController = new StarredItemsController();
 
 const authRouter = express.Router();
 const adminRouter = express.Router();
@@ -48,6 +50,10 @@ authRouter.patch('/users/:id', userController.updateUserById);
 adminRouter.delete('/users/:id', userController.deleteUserById);
 adminRouter.post('/users', userController.register);
 
+authRouter.get('/starredItems', starredItemsController.getStarredItems);
+
+authRouter.post('/starredItems', starredItemsController.createStarredItems);
+authRouter.delete('/starredItems/:id', starredItemsController.deleteStarredItems);
 
 authRouter.use(withRole(Roles.admin), adminRouter);
 
