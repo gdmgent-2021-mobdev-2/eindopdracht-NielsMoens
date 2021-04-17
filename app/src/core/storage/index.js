@@ -1,19 +1,19 @@
-const KEY_USER = 'KEY_USER';
+const KEY_USER = "KEY_USER";
 const getUser = () => {
-    const user = localStorage.getItem(KEY_USER);
-    if (user) {
-        return JSON.parse(user);
-    }
-    return null;
+  const user = localStorage.getItem(KEY_USER);
+  if (user) {
+    return JSON.parse(user);
+  }
+  return null;
 };
 
 const storeUser = (user) => {
-    localStorage.setItem(KEY_USER, JSON.stringify(user));
+  localStorage.setItem(KEY_USER, JSON.stringify(user));
 };
 
 const storage = {
-    storeUser,
-    getUser,
+  storeUser,
+  getUser,
 };
 
-export default  {storeUser, getUser} ;
+export default { storeUser, getUser };

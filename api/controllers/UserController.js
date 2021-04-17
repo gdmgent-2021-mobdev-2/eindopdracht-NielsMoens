@@ -85,12 +85,13 @@ class UserController {
 
     login = async (req, res, next) => {
         const { user } = req;
-        const { email, role, _id, name } = req.user;
+        const { email, role, _id, name, img } = req.user;
         res.status(200).json({
             email,
             role,
             _id,
             name,
+            img,
             token: user.createToken(),
         });
     };

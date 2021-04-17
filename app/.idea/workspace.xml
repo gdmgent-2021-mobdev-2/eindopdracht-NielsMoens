@@ -2,14 +2,90 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="728ce7f1-9068-4a34-af76-66a8acdfb8d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/App/Pages/Clients/Create/CreateClient.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/App/Pages/Clients/Detail/ClientDetail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/App/Pages/Clients/Edit/EditClient.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/App/Pages/Starred/SaveItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/App/Pages/Users/Create/CreateUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/App/Pages/Users/Create/Form/UserForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/App/Pages/Users/Detail/DetailPage/UserDetail.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/App/Pages/Users/Detail/Edit/EditUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/App/Pages/Users/Detail/Edit/Form/UserUpdateForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/App/Pages/Users/Detail/UserDetailContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/App/Pages/Users/Overview/StarredItems/StarredItemsOverview.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/App/Pages/Users/Overview/UserOverview.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/App/Pages/Users/User.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/App/Pagination/Pagination.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Design/List.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Shared/Pagination/PageFilter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/modules/StarredProject/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/modules/Users/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/controllers/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../api/controllers/UserController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Users/Overview/RegisteredUsers/RegisteredUsersOverview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Header/login/LogoutButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Header/login/LogoutButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Header/login/UserLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Header/login/UserLogin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/MainRouting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/MainRouting.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Clients/Clients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Clients/Clients.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Clients/Form/ClientForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Clients/Form/ClientForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Clients/Create/CreateClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Clients/Create/CreateClient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Clients/Create/Form/ClientForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Clients/Create/Form/ClientForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Clients/Detail/ClientDetailContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Clients/Detail/ClientDetailContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Clients/Detail/DetailPage/ClientDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Clients/Detail/DetailPage/ClientDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Clients/Detail/Edit/EditClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Clients/Detail/Edit/EditClient.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Clients/Overview/ClientOverview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Clients/Overview/ClientOverview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Login/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Login/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Login/LoginPage.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Login/LoginPage.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Projects/Create/CreateProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Projects/Create/CreateProject.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Projects/Detail/Logs/Create/CreateUpdates.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Projects/Detail/Logs/Create/CreateUpdates.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Projects/Detail/Logs/Form/UpdateForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Projects/Detail/Logs/Form/UpdateForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Projects/Detail/Logs/LogOverview/LogOverview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Projects/Detail/Logs/LogOverview/LogOverview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Projects/Detail/ProjectDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Projects/Detail/ProjectDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Projects/Detail/ProjectDetailContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Projects/Detail/ProjectDetailContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Projects/Edit/EditProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Projects/Edit/EditProject.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Projects/Form/ProjectForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Projects/Form/ProjectForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Projects/Overview/ProjectsOverview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Projects/Overview/ProjectsOverview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Projects/Project.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Projects/Project.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Projects/Select/ClientSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Projects/Select/ClientSelect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Reviews/Create/CreateReview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Reviews/Create/CreateReview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Reviews/Form/ReviewForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Reviews/Form/ReviewForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Reviews/Overview/ReviewOverview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Reviews/Overview/ReviewOverview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Reviews/Reviews.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Reviews/Reviews.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Reviews/Select/ReviewSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Reviews/Select/ReviewSelect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/Services/Services.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Pages/Services/Services.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Pages/UserDashboard/UserDashboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/AuthProvider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/AuthProvider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Design/Alert.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Design/Alert.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Design/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Design/Button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Design/Container.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Design/Container.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Design/Image.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Design/Image.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Design/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Design/Input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Design/LoadingSpinner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Design/LoadingSpinner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Design/Select.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Design/Select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Shared/Admin/AdminContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Shared/Admin/AdminContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Shared/Admin/AdminRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Shared/Admin/AdminRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Shared/ErrorAlert.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Shared/ErrorAlert.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/error/apiError.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/error/apiError.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/error/appError.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/error/appError.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/hooks/useAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/hooks/useAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/hooks/useAuthApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/hooks/useAuthApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/hooks/useFetch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/hooks/useFetch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/modules/auth/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/modules/auth/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/modules/auth/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/modules/auth/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/modules/auth/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/modules/auth/utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/modules/clients/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/modules/clients/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/modules/logs/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/modules/logs/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/modules/projects/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/modules/projects/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/modules/reviews/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/modules/reviews/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/routing/routing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/routing/routing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/storage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/storage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/utils/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/utils/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/utils/validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_generic.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_generic.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +96,7 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1qtbcLR1IoxIFvTQ9zQXTOVASMi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -50,6 +126,7 @@
       <workItem from="1617901913225" duration="11000" />
       <workItem from="1617901937071" duration="8000" />
       <workItem from="1617901959713" duration="23000" />
+      <workItem from="1618693727723" duration="222000" />
     </task>
     <servers />
   </component>

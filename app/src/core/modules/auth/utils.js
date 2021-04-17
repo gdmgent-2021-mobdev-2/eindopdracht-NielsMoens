@@ -1,9 +1,7 @@
-const {Roles} = require("./constants");
+const { Roles } = require("./constants");
 
-const isAdmin = (user) =>{
-    return user.role === Roles.admin;
+const isAdmin = (user) => {
+  return user.role === Roles.admin;
 };
 
-export {
-    isAdmin
-}
+export { isAdmin };

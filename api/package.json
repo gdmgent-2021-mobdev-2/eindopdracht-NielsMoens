@@ -26,5 +26,11 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^4.3",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0"
+  }
 }

@@ -1,17 +1,17 @@
-import {useAuth} from "../../Auth/AuthProvider";
-import {isAdmin} from "../../../core/modules/auth/utils";
-import {Redirect, Route} from "react-router-dom";
+import { useAuth } from "../../Auth/AuthProvider";
+import { isAdmin } from "../../../core/modules/auth/utils";
+import { Redirect, Route } from "react-router-dom";
 
 // check it the user is admin or user -> display the permitted components
 const AdminRoute = ({ path, children }) => {
-    const { user } = useAuth();
-    const allowed = isAdmin(user);
+  const { user } = useAuth();
+  const allowed = isAdmin(user);
 
-    if (!allowed) {
-        return <Redirect to="/" />;
-    }
+  if (!allowed) {
+    return <Redirect to="/" />;
+  }
 
-    return <Route path={path}>{children}</Route>;
+  return <Route path={path}>{children}</Route>;
 };
 
 export default AdminRoute;
