@@ -82,7 +82,7 @@ const LoginPage = ({ setUser }) => {
                     error={errors.email}
                   />
                 </div>
-                
+
                 <div className="form-group">
                   <label htmlFor="password" className="sr-only text-white">
                     Password
