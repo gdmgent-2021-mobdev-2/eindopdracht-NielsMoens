@@ -26,15 +26,14 @@ const ProjectDetail = () => {
     } = useFetch(apiCall);
 
     if (isLoading) { return <Spinner/> }
-    if (error) { return <Alert color='danger'>{error}</Alert> }
 
+    if (error) { return <Alert color='danger'>{error}</Alert> }
 
     return (
         <>
-
                 {
                     project &&
-                    <div className="container">
+                    <div className="container bg-white p-4 rounded-3">
                             <h1 className="my-4">{project.name}</h1>
                             <AdminContainer>
                                 <Link to={route(Routes.ProjectsEdit, {id: project._id})}>
@@ -51,9 +50,10 @@ const ProjectDetail = () => {
                             </AdminContainer>
                         <div className="row">
                             <div className="col-md-8">
-                                <Image className={'card-img-top'}
-                                       src={'https://media.discordapp.net/attachments/609454665272393736/831269815984979975/unknown.png'}
-                                       alt={'logo'}/>
+                                {project.img !== undefined ?
+                                    <Image className={'card-img-top'}
+                                           src={project.img}
+                                           alt={'logo'}/> : ''}
                             </div>
                             <div className="col-md-4">
                                 <h3 className="my-3">Project Description</h3>
@@ -67,12 +67,13 @@ const ProjectDetail = () => {
                         </div>
                     </div>
                 }
-            <AdminContainer>
-                <LogOverview projectId={id} />
-            </AdminContainer>
-
+            <div className="container bg-white p-4 rounded-3">
+                <AdminContainer>
+                    <LogOverview projectId={id} />
+                </AdminContainer>
+            </div>
         </>
     )
-};
+}
 
 export default ProjectDetail;

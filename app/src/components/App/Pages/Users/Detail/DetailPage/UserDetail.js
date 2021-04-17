@@ -15,10 +15,11 @@ const UserDetail = ({ user }) => {
         <>
             <h1>User Details</h1>
             <div className="card " style={{width:"400px"}}>
-                <img className="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="Card image"></img>
+                <img className="card-img-top" src={user.img !== undefined ? user.img : "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" } alt="Card image"/>
                 <div className="card-body">
-                    <h4 className="card-text">{user.email} </h4>
-                    <p className="card-text">Email: {user.role} </p>
+                    <h4 className="card-text">{user.name} </h4>
+                    <p className="card-text">Email: {user.email} </p>
+                    <p className="card-text">Role: {user.role} </p>
                     <Link className="btn btn-primary" to={route(Routes.UsersEdit, {id: user._id})}>
                         Edit User
                     </Link>

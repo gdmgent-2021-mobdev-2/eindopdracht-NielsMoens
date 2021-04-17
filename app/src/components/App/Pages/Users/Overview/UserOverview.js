@@ -11,7 +11,6 @@ import {useAuth} from "../../../../Auth/AuthProvider";
 import RegisteredUsersOverview from "./RegisteredUsers/RegisteredUsersOverview";
 import StarredItemsOverview from "./StarredItems/StarredItemsOverview";
 
-
 const UserOverview = () => {
     const {user} = useAuth();
 
@@ -31,33 +30,36 @@ const UserOverview = () => {
         return <Alert color="danger">{error}</Alert>;
     }
 
-
     return (
         <>
-            <div className="m-4">
-
-                <h1> Edit Profile Info </h1>
-                <AdminContainer>
-                    <Link to={Routes.UsersCreate}>
-                        <Button color='outline-dark'>Create User</Button>
-                    </Link>
-                </AdminContainer>
-                <div className="card " style={{width:"400px"}}>
-                    <img className="card-img-top" src={user.img} alt="Card image"></img>
-                    <div className="card-body">
-                        <h4 className="card-text">{user.name} </h4>
-                        <p className="card-text">Email: {user.email} </p>
-                        <p className="card-text">Role: {user.role} </p>
-                        <Link className="btn btn-primary" to={route(Routes.UsersEdit, {id: user._id})}>
-                            Edit User
-                        </Link>
+            <div className="container ">
+                    <div className="col-lg-12 my5">
+                        <h1> Profile Info </h1>
+                        <AdminContainer>
+                            <Link to={Routes.UsersCreate}>
+                                <Button color='outline-dark'>Create User</Button>
+                            </Link>
+                        </AdminContainer>
+                        <div className="card " style={{width:"400px"}}>
+                            {user.img !== undefined ? <img className="card-img-top" src={user.img} alt="Card image cap"/> : '' }
+                            <div key={user._id} className="card-body">
+                                <h4 className="card-text">{user.name} </h4>
+                                <p className="card-text">Email: {user.email} </p>
+                                <p className="card-text">Role: {user.role} </p>
+                                <Link className="btn btn-outline-warning" to={route(Routes.UsersEdit, {id: user._id})}>
+                                    ✏️ Edit
+                                </Link>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <StarredItemsOverview user={user} />
-                <AdminContainer>
-                    <RegisteredUsersOverview users={users}/>
-                </AdminContainer>
+                    <div className="col-lg-12 my-4">
+                        <AdminContainer>
+                            <RegisteredUsersOverview users={users}/>
+                        </AdminContainer>
+                        <StarredItemsOverview user={user} />
+                    </div>
             </div>
+
         </>
     )
 };

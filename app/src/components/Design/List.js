@@ -10,10 +10,11 @@ const List = ({projects, onStudentClick}) => {
                 projects.map(
                     (project) => (
                         <div key={project._id} className="col-sm-3 mb-4">
-                            <div className="card m-4">
+                            <div className="card my-3">
+                                {project.img !== undefined ?
                                 <Image className={'card-img-top'}
-                                       src={'https://media.discordapp.net/attachments/609454665272393736/831269815984979975/unknown.png'}
-                                       alt={'logo'}/>
+                                       src={project.img}
+                                       alt={'logo'}/> : ''}
                                 <div className="card-body">
                                     <div className="d-flex justify-content-between">
                                         <Link to={route(Routes.ProjectsDetail, {id: project._id})}>

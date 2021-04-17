@@ -13,7 +13,6 @@ const CreateReview = () => {
     const [error, setError] = useState();
 
     const handleSubmit = (data) => {
-        console.log(data);
         setIsLoading(true);
         withAuth(createReview(data))
             .then(() => {

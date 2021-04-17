@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 const Button = ({ children, onClick, color = "outline-dark", type = "button" }) => {
     return (
         <button
-            className={`btn btn-${color}`}
+            className={`btn btn-${color} my-2 `}
             onClick={onClick}
             type={type}>
             { children }

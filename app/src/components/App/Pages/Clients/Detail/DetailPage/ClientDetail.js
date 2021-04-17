@@ -2,7 +2,6 @@ import {Link} from "react-router-dom";
 import {route, Routes} from "../../../../../../core/routing/routing";
 
 const ClientDetail = ({ client }) => {
-    console.log(client)
     return (
         <>
             <h1>Client Details</h1>

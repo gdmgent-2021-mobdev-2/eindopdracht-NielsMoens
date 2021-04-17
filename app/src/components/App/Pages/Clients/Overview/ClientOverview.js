@@ -36,7 +36,7 @@ const ClientOverview = () => {
                 </Link>
             </AdminContainer>
                 { clients.map((client) => (
-                    <div className="list-group m-4">
+                    <div key={client._id} className=" my-3">
                         {
                             admin ? <Link className="list-group-item list-group-item-action" to={route(Routes.ClientsDetail, {id: client._id})}>{client.name}</Link>
                                 : <span className="list-group-item"> {client.name}</span>

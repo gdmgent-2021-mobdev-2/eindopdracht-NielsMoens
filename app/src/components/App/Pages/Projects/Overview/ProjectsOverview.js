@@ -12,7 +12,6 @@ import PageFilter from "../../../../Shared/Pagination/PageFilter";
 import Pagination from "../../../Pagination/Pagination";
 
 const ProjectsOverview = ({project, onUpdate}) => {
-
     const {
         data: projects,
         error,
@@ -25,7 +24,6 @@ const ProjectsOverview = ({project, onUpdate}) => {
     if (error) {
         return <Alert color="danger">{error}</Alert>;
     }
-
     return (
        <>
             <h1>Projects Overview</h1>
@@ -39,7 +37,5 @@ const ProjectsOverview = ({project, onUpdate}) => {
        </>
     )
 };
-
-
 
 export default ProjectsOverview;

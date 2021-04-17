@@ -3,16 +3,17 @@ import Header from "./Header/Header";
 import {AuthContext, useAuth} from "../Auth/AuthProvider";
 import MainRouting from "./MainRouting";
 
-
 const App = () => {
-    //by importing useAuth we can access the user & setUser form anywhere beneath this now
-    // const {user, setUser} = useAuth();
     return(
         <>
             <Header />
-            <main className="container-fluid">
-                    <MainRouting />
-            </main>
+            <div className="container ">
+                <div className="col-lg-12 my5">
+                    <main className="container-fluid wrapper">
+                            <MainRouting />
+                    </main>
+                </div>
+            </div>
         </>
     );
   };

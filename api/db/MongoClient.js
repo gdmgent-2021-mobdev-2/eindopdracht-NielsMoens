@@ -13,7 +13,6 @@ class MongoClient {
         });
         const db = mongoose.connection;
         db.on('error', console.error.bind(console, function (e){
-            console.log(e);
         }));
         db.once('open', function () {
             // we're connected!

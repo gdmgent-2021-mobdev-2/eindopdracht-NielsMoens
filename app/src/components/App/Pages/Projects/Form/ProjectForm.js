@@ -8,11 +8,13 @@ import ClientSelect from "../Select/ClientSelect";
 const schema = yup.object().shape({
     name: yup.string().required(),
     description: yup.string().required(),
+    img: yup.string(),
 });
 
 const defaultData = {
     name: '',
     description: '',
+    img: '',
 };
 
 const ProjectForm = ({onSubmit, initialData ={}, disabled}) => {
@@ -102,6 +104,13 @@ const ProjectForm = ({onSubmit, initialData ={}, disabled}) => {
                 disabled={disabled}
                 onChange={handleChange}
                 error={errors.clientId}
+            />
+
+            <Input type="text" name="img" label="Profile Picture" placeholder="paste image adress here"
+                   value={data.img}
+                   disabled={disabled}
+                   onChange={handleChange}
+                   error={errors.img}
             />
 
             <Button type="submit" disabled={disabled}>

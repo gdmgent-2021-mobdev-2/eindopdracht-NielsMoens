@@ -10,7 +10,7 @@ const PageFilter = ({currentPage , max, onClick}) => {
         )
     }
     return (
-        <nav className=" ">
+        <nav className="d-flex justify-content-center ">
             <ul className="d-flex flex-row">
                 <Button disabled = {currentPage === 1}onClick={() => onClick(currentPage - 1)}>&lt;</Button>
                 {array}

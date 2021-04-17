@@ -8,7 +8,6 @@ import ProjectDetailContainer from "./Detail/ProjectDetailContainer";
 
 
 const Projects = () => {
-
     return(
         <>
             <Switch>

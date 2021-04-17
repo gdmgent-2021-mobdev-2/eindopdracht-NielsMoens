@@ -7,7 +7,6 @@ const fetchStarredItems = () => (headers) => {
 }
 
 const createStarredItems = (data) => (headers) => {
-    console.log(data)
     return fetch(`${process.env.REACT_APP_BASE_API}/starredItems`, {
         method:'POST',
         headers: createHeaders(headers),
@@ -22,7 +21,6 @@ const deleteStarredItemsByProjectId = async (projectId, user) => {
             'Authorization': `Bearer ${user.token}`
         },
     }).then((response) => response.json())
-        .then((data) => console.log(data));
 }
 
 export {

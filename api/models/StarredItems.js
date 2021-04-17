@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
+
 // Users schema
-
-
 const starSchema = new mongoose.Schema({
     userId: {
         type: String,

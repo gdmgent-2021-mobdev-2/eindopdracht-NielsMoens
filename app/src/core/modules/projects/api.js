@@ -7,7 +7,6 @@ const fetchProjects = () => (headers) => {
 };
 
 const fetchProject = (id) => (headers) => {
-    console.log()
     return fetch(`${process.env.REACT_APP_BASE_API}/projects/${id}`, {
         headers: createHeaders(headers),
     });

@@ -62,30 +62,36 @@ const UserUpdateForm = ({onSubmit, initialData ={}, disabled}) => {
 
     return (
         <form onSubmit={handleSubmit} noValidate={true}>
-            <label htmlFor="email">email</label>
-            <Input type="email" name="email"
-                value={data.email}
-                disabled={disabled}
-                onChange={handleChange}
-                error={errors.email}
-            />
-            <label htmlFor="name">name</label>
-            <Input type="text" name="name"
+
+            <Input type="text" name="name" label="Name"
                 value={data.name}
                 disabled={disabled}
                 onChange={handleChange}
                 error={errors.name}
             />
+
+            <Input type="email" name="email" label="Email"
+                value={data.email}
+                disabled={disabled}
+                onChange={handleChange}
+                error={errors.email}
+            />
+
+            <Input type="text" name="img" label="Profile Picture" placeholder="paste image adress here"
+                   value={data.img}
+                   disabled={disabled}
+                   onChange={handleChange}
+                   error={errors.img}
+            />
+
             <AdminContainer>
-                <label htmlFor="email">role</label>
-                <Input type="role" name="role"
+                <Input type="role" name="role" label="Role"
                        value={data.role}
                        disabled={disabled}
                        onChange={handleChange}
                        error={errors.role}
                 />
             </AdminContainer>
-
 
             <Button type="submit" disabled={disabled}>
                 {data._id ? 'Update' : 'Create'}

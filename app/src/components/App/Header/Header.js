@@ -20,21 +20,26 @@ const navItems = [
 
 const Header = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="#">3DPrinting Dev</a>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav mr-auto">
+        <>
+            <header className="header">
+                <a href="" className="logo">3DPrinting Dev</a>
+                <input className="menu-btn" type="checkbox" id="menu-btn"/>
+                <label className="menu-icon" htmlFor="menu-btn">
+                    <span className="navicon"></span>
+                </label>
+                <ul className="menu">
                     {
                         navItems.map((navItems) => (
                             <li key={navItems.label} className="nav-item">
                                 <Link className="nav-link" to={navItems.route}>{navItems.label}</Link>
                             </li>
+
                         ))
                     }
+                    <UserLogin />
                 </ul>
-            </div>
-           <UserLogin />
-        </nav>
+            </header>
+        </>
     );
 };
 

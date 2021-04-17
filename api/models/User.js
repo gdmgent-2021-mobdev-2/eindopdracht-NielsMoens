@@ -5,7 +5,6 @@ const jwt = require("jsonwebtoken");
 const {ExtractJwt, Strategy} = require("passport-jwt");
 
 // Users schema
-
 const Roles = {
     admin: 'admin',
     user: 'user',

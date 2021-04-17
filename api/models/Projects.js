@@ -10,11 +10,10 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    // TODO image storage/ encoder idk ... Multer? figure it out later
-    // thumbnail: {
-    //     type: String,
-    //     required: true,
-    // },
+    img: {
+        type: String,
+        required: false,
+    },
     clientId: {
         type: 'ObjectId',
         required: false,

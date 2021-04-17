@@ -34,8 +34,6 @@ const reviewSchema = new mongoose.Schema({
     }
 });
 
-
-
 reviewSchema.virtual('project', {
     ref: 'Project',
     localField: 'projectId',

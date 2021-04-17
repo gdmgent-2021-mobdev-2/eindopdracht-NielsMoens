@@ -36,7 +36,6 @@ const useFetch = (apiCall) => {
     }, [apiCall, fetchData]);
 
     const isLoading = !data && !error;
-    // console.log("data", data);
     return {
         data,
         error,
