@@ -81,9 +81,8 @@ const LoginPage = ({ setUser }) => {
                     onChange={handleChange}
                     error={errors.email}
                   />
-                  Updates
                 </div>
-                Updates
+                
                 <div className="form-group">
                   <label htmlFor="password" className="sr-only text-white">
                     Password
