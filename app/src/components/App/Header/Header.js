@@ -25,7 +25,7 @@ const Header = () => {
     <>
       <header className="header">
         <a href="/" className="logo">
-          3DPrinting Dev
+          3DprintingDev
         </a>
         <input className="menu-btn" type="checkbox" id="menu-btn" />
         <label className="menu-icon" htmlFor="menu-btn">
